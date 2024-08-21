@@ -2,6 +2,7 @@ import darkSaasLandingPage from "@/assets/images/dark-saas-landing-page.png";
 import lightSaasLandingPage from "@/assets/images/light-saas-landing-page.png";
 import aiStartupLandingPage from "@/assets/images/ai-startup-landing-page.png";
 import Image from "next/image";
+import CheckCircleIcon from "@/assets/icons/check-circle.svg";
 
 const portfolioProjects = [
   {
@@ -46,7 +47,7 @@ export const ProjectsSection = () => {
   return (
     <div className="container">
       <div className="flex justify-center">
-        <p className="uppercase font-semibold tracking-widest bg-gradient-to-r from-emerald-300 to sky-400 text-center bg-clip-text text-transparent">
+        <p className="uppercase font-semibold tracking-widest text-center text-transparent bg-gradient-to-r from-emerald-300 to-sky-400 bg-clip-text w-full">
           Real-World Results
         </p>
       </div>
@@ -61,26 +62,33 @@ export const ProjectsSection = () => {
         {portfolioProjects.map((project) => (
           <div
             key={project.title}
-            className="bg-gray-800 p-6 rounded-3xl relative z-0 overflow-hidden after:z-10 after:content-[''] after:absolute after:inset-0 after:outline-2 after:outline after:-outline-offset-2 after:rounded-3xl after:outline-white/20"
+            className="bg-gray-800 rounded-3xl relative z-0 overflow-hidden after:z-10 after:content-[''] after:absolute after:inset-0 after:outline-2 after:outline after:-outline-offset-2 after:rounded-3xl after:outline-white/20 p-8"
           >
-            <div className="flex justify-between">
-              <span className="font-semibold text-lg">{project.title}</span>
-              <span className="text-gray-400">{project.year}</span>
+            <div className="flex">
+              <div className="bg-gradient-to-r from-emerald-300 to-sky-400 inline-flex gap-2 font-bold uppercase tracking-widest text-sm text-transparent bg-clip-text">
+                {project.company}
+                <span>&bull;</span>
+                <span className="">{project.year}</span>
+              </div>
             </div>
-            <h3 className="text-xl mt-4">
-              {project.title}
-              <span className="text-gray-400">Project Details</span>
-            </h3>
-            <ul className="mt-4 space-y-2">
+            <h3 className="font-serif text-2xl mt-2">{project.title}</h3>
+            <hr className="border-t-2 border-white/5 mt-4" />
+            <ul className="flex flex-col gap-4 mt-4">
               {project.results.map((result) => (
-                <li key={result.title}>{result.title}</li>
+                <li
+                  className="flex gap-2 text-sm text-white/50"
+                  key={result.title}
+                >
+                  <CheckCircleIcon className="size-5" />
+                  <span>{result.title}</span>
+                </li>
               ))}
             </ul>
             <a href={project.link}>
-              <button className="mt-6 bg-blue-500 text-white py-2 px-4 rounded">
+              <button className="bg-white text-gray-950 h-12 w-full rounded-xl font-semibold">
                 View Live Site
               </button>
-            </a>=
+            </a>
             <Image
               src={project.image}
               alt={project.title}
