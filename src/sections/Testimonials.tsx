@@ -51,13 +51,23 @@ export const TestimonialsSection = () => {
           description=" Don't just take my word for it. See what my clients have to say
         about my work."
         />
-        <div>
+        <div className="mt-16">
           {testimonials.map((item) => (
             <Card key={item.name}>
-              <Image src={item.avatar} alt="avatar" />
-              <div>{item.name}</div>
-              <div>{item.position}</div>
-              <p>{item.text}</p>
+              <div className="flex gap-4 items-center">
+                <div className="size-14 bg-gray-700 inline-flex items-center justify-center rounded-full">
+                  <Image
+                    src={item.avatar}
+                    alt={item.name}
+                    className="max-h-full"
+                  />
+                </div>
+                <div>
+                  <div className="font-semibold">{item.name}</div>
+                  <div className="text-sm text-white/40">{item.position}</div>
+                </div>
+              </div>
+              <p className="mt-4 text-sm">{item.text}</p>
             </Card>
           ))}
         </div>
