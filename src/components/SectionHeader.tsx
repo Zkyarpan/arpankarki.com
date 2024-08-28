@@ -24,4 +24,4 @@ const SectionHeader = ({
   );
 };
 
-export default SectionHeader;
+export default {SectionHeader};
