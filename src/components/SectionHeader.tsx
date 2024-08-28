@@ -1,10 +1,10 @@
 const SectionHeader = ({
-  title,
   eyebrow,
+  title,
   description,
 }: {
-  title: string;
   eyebrow: string;
+  title: string;
   description: string;
 }) => {
   return (
@@ -24,4 +24,4 @@ const SectionHeader = ({
   );
 };
 
-export default {SectionHeader};
+export default SectionHeader;
