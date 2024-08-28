@@ -44,26 +44,44 @@ const hobbies = [
   {
     title: "Traveling",
     emoji: "✈️",
+    left: "5%",
+    top: "5%",
   },
   {
     title: "Painting",
     emoji: "🎨",
+    left: "50%",
+    top: "5%",
   },
   {
     title: "Hiking",
     emoji: "🥾",
+    left: "10%",
+    top: "35%",
   },
   {
     title: "Photography",
     emoji: "📸",
+    left: "35%",
+    top: "40%",
   },
   {
     title: "Music",
     emoji: "🎼",
+    left: "70%",
+    top: "40%",
   },
   {
     title: "Fitness",
     emoji: "⛹️‍♀️",
+    left: "5%",
+    top: "65%",
+  },
+  {
+    title: "Reading",
+    emoji: "⛹️‍♀️",
+    left: "45%",
+    top: "70%",
   },
 ];
 
@@ -100,18 +118,28 @@ export const AboutSection = () => {
               itemsWrappeClassName="-translate-x-1/2"
             />
           </Card>
-          <Card>
+          <Card className="h-[320px] p-0 flex flex-col">
             <div>
               <CardHeader
                 title="Beyond the Code"
                 description="Explore my interests and hobbies beyond the digital realm"
+                className="px-6 py-6"
               />
             </div>
-            <div>
+            <div className="relative flex-1">
               {hobbies.map((item) => (
-                <div key={item.title} className="">
-                  <span>{item.title}</span>
-                  <span>{item.emoji}</span>
+                <div
+                  key={item.title}
+                  className="inline-flex items-center gap-2 px-6 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full py-1.5 absolute"
+                  style={{
+                    left: item.left,
+                    top: item.top,
+                  }}
+                >
+                  <span className="font-medium text-gray-950">
+                    {item.title}
+                  </span>
+                  <span className="">{item.emoji}</span>
                 </div>
               ))}
             </div>
