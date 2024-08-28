@@ -1,6 +1,5 @@
 import SectionHeader from "@/components/SectionHeader";
 import Card from "@/components/Card";
-import StarIcon from "@/assets/icons/star.svg";
 import bookImage from "@/assets/images/book-cover.png";
 import Image from "next/image";
 import JavasctiptIcon from "@/assets/icons/square-js.svg";
@@ -9,11 +8,10 @@ import CSS from "@/assets/icons/css3.svg";
 import ReactIcon from "@/assets/icons/react.svg";
 import ChromeIcon from "@/assets/icons/chrome.svg";
 import GithubIcon from "@/assets/icons/github.svg";
-import TechIcons from "@/components/TechIcons";
 import mapImage from "@/assets/images/map.png";
 import smileMemoji from "@/assets/images/memoji-smile.png";
 import CardHeader from "../components/CardHeader";
-import ToolboxItem from "@/components/ToolBoxItem";
+import ToolboxItem from "@/components/ToolboxItem";
 
 const toolboxItems = [
   {
@@ -96,7 +94,11 @@ export const AboutSection = () => {
               className="px-6 pt-6"
             />
             <ToolboxItem items={toolboxItems} className="mt-6" />
-            <ToolboxItem items={toolboxItems} className="mt-6" />
+            <ToolboxItem
+              items={toolboxItems}
+              className="mt-6"
+              itemsWrappeClassName="-translate-x-1/2"
+            />
           </Card>
           <Card>
             <div>
