@@ -3,7 +3,7 @@ import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
 const footerLinks = [
   {
     title: "Github",
-    href: "",
+    href: "https://github.com/Zkyarpan",
   },
   {
     title: "PeerList",
@@ -34,7 +34,7 @@ export const Footer = () => {
               <a
                 key={index}
                 href={link.href}
-                className="inline-flex items-center gap-1.5"
+                className="inline-flex items-center gap-1.5 cursor-pointer"
               >
                 <span className="font-serif">{link.title}</span>
                 <ArrowUpRightIcon className="size-4" />

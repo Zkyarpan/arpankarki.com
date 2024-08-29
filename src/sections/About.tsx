@@ -8,7 +8,7 @@ import CSS from "@/assets/icons/css3.svg";
 import ReactIcon from "@/assets/icons/react.svg";
 import ChromeIcon from "@/assets/icons/chrome.svg";
 import GithubIcon from "@/assets/icons/github.svg";
-import mapImage from "@/assets/images/map.png";
+import mapImage from "@/assets/images/Map.jpg";
 import smileMemoji from "@/assets/images/memoji-smile.png";
 import CardHeader from "../components/CardHeader";
 import ToolboxItem from "@/components/ToolboxItem";
