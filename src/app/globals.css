@@ -10,6 +10,35 @@
     @apply absolute inset-0  border-2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-emerald-300/5 shadow-[0_0_80px_inset] shadow-emerald-300/5;
   }
 }
+html {
+  scroll-behavior: smooth;
+}
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #222222 #333333;
+}
+
+/* Chrome, Edge, Safari */
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #333333;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #222222;
+  border-radius: 10px;
+  border: 2px solid #333333;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #444444;
+}
+
+
 /* 
 @layer utilities {
   .container {
