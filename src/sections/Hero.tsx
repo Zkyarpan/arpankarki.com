@@ -10,7 +10,7 @@ export const HeroSection = () => {
   return (
     <div
       id="home"
-      className="py-32 md:py-48 lg:py-60 relative z-0 overflow-x-clip -top-10"
+      className="py-32 md:py-48 lg:py-60 relative z-0 overflow-x-clip"
     >
       <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]">
         <div
@@ -102,7 +102,7 @@ export const HeroSection = () => {
           <StarIcon className="size-8 text-emerald-300" />
         </HeroOrbit>
       </div>
-      <div className="container">
+      <div className="container lg:-mt-20">
         <div className="flex flex-col items-center">
           <Image
             src={momojiImage}
@@ -123,8 +123,8 @@ export const HeroSection = () => {
             Hey, I&apos;m Arpan
           </h1>
           <p className="mt-4 text-center text-white/60 md:text-lg">
-            i&apos;m a student interested in comp sci, web dev,
-            design, and more.
+            i&apos;m a student interested in comp sci, web dev, design, and
+            more.
           </p>
         </div>
         <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4">

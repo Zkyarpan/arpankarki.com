@@ -66,7 +66,7 @@ export const ContactSection = () => {
       </div>
 
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent className="sm:max-w-[425px] bg-[#0b1120] text-white p-4 sm:p-6">
+        <DialogContent className="sm:max-w-[305px] sm:-10 bg-[#0b1120] text-white p-4 sm:p-6 md:max-w-[370px] lg:max-w-[405px]">
           <DialogHeader>
             <DialogTitle className="text-teal-400 text-lg md:text-xl">
               Contact Me
