@@ -7,23 +7,23 @@ const footerLinks = [
   },
   {
     title: "PeerList",
-    href: "",
+    href: "https://peerlist.io/zkyyarpan",
   },
   {
     title: "LinkedIn",
-    href: "",
+    href: "https://www.linkedin.com/in/arpan-karki-b5351a286/",
   },
   {
     title: "Twitter",
-    href: "",
+    href: "https://x.com/zkyarpan?s=21",
   },
 ];
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
-    <footer className="relative -z-10 overflow-x-clip">
-      <div className="absolute h-[400px] w-[1600px] bottom-0 left-1/2 -translate-x-1/2 bg-emerald-300/30 [mask-image:radial-gradient(50%_50%_at_bottom_center,black,transparent)] -z-10"></div>
+    <footer className="relative overflow-x-clip">
+      <div className="absolute h-[400px] w-[1600px] bottom-0 left-1/2 -translate-x-1/2 bg-emerald-300/30 [mask-image:radial-gradient(50%_50%_at_bottom_center,black,transparent)] -z-10 pointer-events-none"></div>
       <div className="container">
         <div className="border-t border-white/15 py-6 text-sm flex flex-col md:flex-row md:justify-between items-center gap-8">
           <div className="text-white/40">
@@ -34,10 +34,12 @@ export const Footer = () => {
               <a
                 key={index}
                 href={link.href}
-                className="inline-flex items-center gap-1.5 cursor-pointer"
+                className="inline-flex items-center gap-1.5 cursor-pointer text-white hover:text-emerald-300"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <span className="font-serif">{link.title}</span>
-                <ArrowUpRightIcon className="size-4" />
+                <ArrowUpRightIcon className="w-4 h-4" />
               </a>
             ))}
           </nav>
