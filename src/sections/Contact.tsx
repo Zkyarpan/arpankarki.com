@@ -22,13 +22,9 @@ export const ContactSection = () => {
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    // Handle form submission here (e.g., send data to a server)
-    console.log("Form submitted:", { name, email });
     setIsModalOpen(false);
-    // Reset form fields
     setName("");
     setEmail("");
-    // Show toast message
     toast({
       title: "Form submitted!",
       description: "We'll get back to you soon.",
@@ -76,7 +72,8 @@ export const ContactSection = () => {
               Contact Me
             </DialogTitle>
             <DialogDescription className="text-sm md:text-base">
-              Fill out this form and I&apos;ll get back to you as soon as possible.
+              Fill out this form and I&apos;ll get back to you as soon as
+              possible.
             </DialogDescription>
           </DialogHeader>
           <form onSubmit={handleSubmit} className="space-y-4 mt-4">
@@ -87,6 +84,7 @@ export const ContactSection = () => {
               <Input
                 id="name"
                 value={name}
+                placeholder="Arpan Karki"
                 onChange={(e) => setName(e.target.value)}
                 className="bg-[#1e293b] text-white border border-gray-600 p-2"
                 required
@@ -103,6 +101,7 @@ export const ContactSection = () => {
                 id="email"
                 type="email"
                 value={email}
+                placeholder="Arpankarki23@gmail.com"
                 onChange={(e) => setEmail(e.target.value)}
                 className="bg-[#1e293b] text-white border border-gray-600 p-2"
                 required
@@ -110,7 +109,7 @@ export const ContactSection = () => {
             </div>
             <Button
               type="submit"
-              className="w-full bg-teal-400 text-black hover:bg-teal-500 p-2"
+              className="w-full font-bold bg-teal-400 text-black hover:bg-teal-500 p-2"
             >
               Submit
             </Button>

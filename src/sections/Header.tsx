@@ -18,14 +18,14 @@ export const Header: React.FC = () => {
       const sections: string[] = ["home", "projects", "about", "contact"];
       const scrollPosition = window.scrollY + window.innerHeight / 2;
 
-      // console.log("Scroll Position:", scrollPosition);
+      console.log("Scroll Position:", scrollPosition);
 
       sections.forEach((section) => {
         const element = document.getElementById(section);
         if (element) {
-          // console.log(
-          //   `Section: ${section}, OffsetTop: ${element.offsetTop}, OffsetHeight: ${element.offsetHeight}`
-          // );
+          console.log(
+            `Section: ${section}, OffsetTop: ${element.offsetTop}, OffsetHeight: ${element.offsetHeight}`
+          );
 
           if (
             element.offsetTop <= scrollPosition &&
@@ -46,7 +46,6 @@ export const Header: React.FC = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-    
   }, []);
 
   return (
