@@ -25,6 +25,7 @@ const portfolioProjects = [
       "Share your thoughts and ideas. Discover, create, and engage with meaningful content that resonates with your interests.",
     link: "https://github.com/Zkyarpan/blogVibe",
     image: blogApp,
+    // image: socialMediaApp,
     showLink: true,
   },
 ];
@@ -38,7 +39,7 @@ export const ProjectsSection = () => {
           title="Featured Projects"
           description="Check out some of my best projects. Each one highlights my skills and the real-world results I've achieved."
         />
-        <div className="flex md:mt-20 flex-col mt-10 gap-20">
+        <div className="flex md:mt-20 flex-col mt-10 gap-8">
           {portfolioProjects.map((project, projectIndex) => (
             <Card
               key={project.title}
@@ -84,7 +85,7 @@ export const ProjectsSection = () => {
                   <Image
                     src={project.image}
                     alt={project.title}
-                    className="mt-8 -mb-4 md:-mb-0 lg:mt-0 lg:absolute lg:h-full lg:w-auto lg:max-w-none rounded-lg"
+                    className="mt-8 -mb-4 md:-mb-0 lg:mt-0 lg:absolute lg:h-[404px] lg:w-auto lg:max-w-none rounded-lg"
                   />
                 </div>
               </div>
