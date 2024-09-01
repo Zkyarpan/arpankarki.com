@@ -60,9 +60,7 @@ export const ContactSection = () => {
               >
                 <span className="button-82-shadow"></span>
                 <span className="button-82-edge"></span>
-                <span className="button-82-front font-serif">
-                  👋 Let&apos;s Connect
-                </span>
+                <span className="button-82-front font-serif">Contact Me</span>
               </button>
             </div>
           </div>
