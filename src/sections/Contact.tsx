@@ -9,7 +9,7 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
@@ -53,13 +53,18 @@ export const ContactSection = () => {
               </p>
             </div>
             <div className="mt-4 md:mt-0">
-              <Button
+              <button
                 onClick={() => setIsModalOpen(true)}
-                className="text-white bg-gray-900 inline-flex items-center px-4 md:px-6 h-10 md:h-12 rounded-xl gap-2 w-full md:w-auto border border-gray-900"
+                className="bg-transparent inline-flex items-center px-4 md:px-6 h-10 md:h-12 rounded-xl gap-2 w-full md:w-auto"
               >
-                <span className="font-semibold">Contact Me</span>
-                <ArrowUpRight className="size-4" />
-              </Button>
+                <button className="button-82-pushable" role="button">
+                  <span className="button-82-shadow"></span>
+                  <span className="button-82-edge"></span>
+                  <span className="button-82-front font-serif">
+                    👋 Let&apos;s Connect
+                  </span>
+                </button>
+              </button>
             </div>
           </div>
         </div>
@@ -107,12 +112,12 @@ export const ContactSection = () => {
                 required
               />
             </div>
-            <Button
+            <button
               type="submit"
-              className="w-full font-bold bg-teal-400 text-black hover:bg-teal-500 p-2"
+              className="w-full font-bold bg-teal-400 text-black hover:bg-teal-500 p-2 rounded-lg"
             >
               Submit
-            </Button>
+            </button>
           </form>
         </DialogContent>
       </Dialog>
