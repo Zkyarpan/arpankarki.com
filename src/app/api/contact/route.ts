@@ -34,8 +34,8 @@ export async function POST(request: NextRequest) {
       subject: "Thank you for your message",
       html: `
         <p>Dear ${email},</p>
-        <p>Thank you for reaching out! We have received your message and will get back to you as soon as possible.</p>
-        <p>Best regards,<br>Your Company</p>
+        <p>Thank you for reaching out! I have received your message and will get back to you as soon as possible.</p>
+        <p>Best regards,<br>Arpan Karki</p>
       `,
     });
 
@@ -55,6 +55,7 @@ export async function POST(request: NextRequest) {
       success: true,
     });
   } catch (error: any) {
+    console.error("Submission error:", error);
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

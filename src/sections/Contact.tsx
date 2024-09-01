@@ -55,6 +55,8 @@ export const ContactSection = () => {
         description: "An error occurred. Please try again.",
         duration: 3000,
       });
+    } finally {
+      setIsLoading(false); // Ensure loader is stopped in both success and error cases
     }
   };
 
