@@ -32,7 +32,7 @@ const portfolioProjects = [
 export const ProjectsSection = () => {
   return (
     <section id="projects" className="pb-16 lg:py-24">
-      <div className="container">
+      <div className="container -mt-15">
         <SectionHeader
           eyebrow="Real-World Results"
           title="Featured Projects"
@@ -42,7 +42,7 @@ export const ProjectsSection = () => {
           {portfolioProjects.map((project, projectIndex) => (
             <Card
               key={project.title}
-              className="px-8 pt-8 pb-0 md:pt-12 md:px-10 lg:pt-16 lg:px-20 sticky top-16"
+              className="px-8 pt-8 pb-0 md:pt-12 md:px-10 lg:pt-16 lg:px-20"
               style={{
                 top: `calc(64px + ${projectIndex * 40}px)`,
               }}
@@ -71,16 +71,16 @@ export const ProjectsSection = () => {
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-block"
+                      className="block"
                     >
-                      <button className="bg-white text-gray-950 h-12 w-full md:w-auto px-6 rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-8">
+                      <button className="bg-white text-gray-950 h-12 w-full px-6 rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-8 lg:w-[50%]">
                         <FaGithub className="size-4" />
                         <span>Source Code</span>
                       </button>
                     </a>
                   )}
                 </div>
-                <div>
+                <div className="relative">
                   <Image
                     src={project.image}
                     alt={project.title}
