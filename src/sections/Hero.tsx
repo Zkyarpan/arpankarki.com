@@ -1,6 +1,5 @@
 import Image from "next/image";
 import momojiImage from "@/assets/images/memoji-computer.png";
-import ArrowDown from "@/assets/icons/arrow-down.svg";
 import grainImage from "@/assets/images/grain.jpg";
 import StarIcon from "@/assets/icons/star.svg";
 import HeroOrbit from "../components/HeroOrbit";
@@ -130,11 +129,7 @@ export const HeroSection = () => {
         <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4">
           <button className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl">
             <span className=" font-serif">Explore My Work</span>
-            <ArrowDown className="size-4" />
-          </button>
-          <button className="inline-flex items-center gap-2 border border-white bg-white text-gray-900 h-12 px-6 rounded-xl">
-            <span>👋</span>
-            <span className="font-serif font-semibold">Let&apos;s Connect</span>
+            <div className="cross-icon animate-cross" />
           </button>
         </div>
       </div>

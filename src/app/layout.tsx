@@ -12,7 +12,7 @@ const bricolageGrotesque = Bricolage_Grotesque({
 });
 
 export const metadata: Metadata = {
-  title: "My Portfolio",
+  title: "Arpan Karki",
 };
 
 export default function RootLayout({
@@ -23,6 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
+        suppressHydrationWarning={true}
         className={twMerge(
           inter.variable,
           bricolageGrotesque.variable,

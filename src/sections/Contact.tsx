@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { ArrowUpRight } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -9,10 +8,10 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
-// import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
+import { User, Mail, Send } from "lucide-react";
 
 export const ContactSection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -20,14 +19,13 @@ export const ContactSection = () => {
   const [email, setEmail] = useState("");
   const { toast } = useToast();
 
-  const handleSubmit = (e: { preventDefault: () => void }) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsModalOpen(false);
     setName("");
     setEmail("");
     toast({
-      title: "Form submitted!",
-      description: "We'll get back to you soon.",
+      description: "Your message has been sent.",
       duration: 3000,
     });
   };
@@ -55,15 +53,14 @@ export const ContactSection = () => {
             <div className="mt-4 md:mt-0">
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="bg-transparent inline-flex items-center px-4 md:px-6 h-10 md:h-12 rounded-xl gap-2 w-full md:w-auto"
+                className="button-82-pushable"
+                role="button"
               >
-                <button className="button-82-pushable" role="button">
-                  <span className="button-82-shadow"></span>
-                  <span className="button-82-edge"></span>
-                  <span className="button-82-front font-serif">
-                    👋 Let&apos;s Connect
-                  </span>
-                </button>
+                <span className="button-82-shadow"></span>
+                <span className="button-82-edge"></span>
+                <span className="button-82-front font-serif">
+                  👋 Let&apos;s Connect
+                </span>
               </button>
             </div>
           </div>
@@ -83,39 +80,49 @@ export const ContactSection = () => {
           </DialogHeader>
           <form onSubmit={handleSubmit} className="space-y-4 mt-4">
             <div>
-              <Label htmlFor="name" className="font-bold text-teal-400 text-sm">
+              <Label htmlFor="name" className="text-teal-400 text-sm">
                 Name
               </Label>
-              <Input
-                id="name"
-                value={name}
-                placeholder="Arpan Karki"
-                onChange={(e) => setName(e.target.value)}
-                className="bg-[#1e293b] text-white border border-gray-600 p-2"
-                required
-              />
+              <div className="relative">
+                <Input
+                  id="name"
+                  value={name}
+                  placeholder="Arpan Karki"
+                  onChange={(e) => setName(e.target.value)}
+                  className="bg-[#1e293b] text-white border border-gray-600 p-2 pl-10 font-serif"
+                  required
+                />
+                <User
+                  className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                  size={16}
+                />
+              </div>
             </div>
             <div>
-              <Label
-                htmlFor="email"
-                className="font-bold text-teal-400 text-sm"
-              >
+              <Label htmlFor="email" className="text-teal-400 text-sm">
                 Email
               </Label>
-              <Input
-                id="email"
-                type="email"
-                value={email}
-                placeholder="Arpankarki23@gmail.com"
-                onChange={(e) => setEmail(e.target.value)}
-                className="bg-[#1e293b] text-white border border-gray-600 p-2"
-                required
-              />
+              <div className="relative">
+                <Input
+                  id="email"
+                  type="email"
+                  value={email}
+                  placeholder="Arpankarki23@gmail.com"
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="bg-[#1e293b] text-white border border-gray-600 p-2 pl-10 font-serif"
+                  required
+                />
+                <Mail
+                  className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                  size={16}
+                />
+              </div>
             </div>
             <button
               type="submit"
-              className="w-full font-bold bg-teal-400 text-black hover:bg-teal-500 p-2 rounded-lg"
+              className="w-full bg-teal-400 text-black hover:bg-teal-500 p-2 rounded-lg flex items-center justify-center font-serif"
             >
+              <Send className="mr-2" size={16} />
               Submit
             </button>
           </form>
