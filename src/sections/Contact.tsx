@@ -11,12 +11,13 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { User, Mail, Send } from "lucide-react";
+import { User, Mail, Send, MessageCircle } from "lucide-react";
 
 export const ContactSection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
   const { toast } = useToast();
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -24,6 +25,7 @@ export const ContactSection = () => {
     setIsModalOpen(false);
     setName("");
     setEmail("");
+    setMessage("");
     toast({
       description: "Your message has been sent.",
       duration: 3000,
@@ -118,9 +120,28 @@ export const ContactSection = () => {
                 />
               </div>
             </div>
+            <div>
+              <Label htmlFor="message" className="text-teal-400 ">
+                Message
+              </Label>
+              <div className="relative">
+                <textarea
+                  id="message"
+                  value={message}
+                  placeholder="Your message here..."
+                  onChange={(e) => setMessage(e.target.value)}
+                  className="bg-[#1e293b] text-white text-sm placeholder-gray-500 border border-gray-600 p-2 pl-10 font-serif w-full h-28 resize-none focus:outline-none focus:ring-0 rounded-lg"
+                  required
+                />
+                <MessageCircle
+                  className="absolute left-3 top-5 transform -translate-y-1/2 text-gray-400"
+                  size={16}
+                />
+              </div>
+            </div>
             <button
               type="submit"
-              className="w-full bg-teal-400 text-black hover:bg-teal-500 p-2 rounded-lg flex items-center justify-center font-serif"
+              className="w-full bg-teal-400 text-black hover:bg-teal-500 p-2 rounded-full flex items-center justify-center font-serif"
             >
               <Send className="mr-2" size={16} />
               Submit
