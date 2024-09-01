@@ -43,7 +43,7 @@ export const ProjectsSection = () => {
           {portfolioProjects.map((project, projectIndex) => (
             <Card
               key={project.title}
-              className="px-8 pt-8 pb-0 md:pt-12 md:px-10 lg:pt-16 lg:px-20"
+              className="px-8 pt-8 pb-0 md:pt-12 md:px-10 lg:pt-16 lg:px-20 sticky"
               style={{
                 top: `calc(64px + ${projectIndex * 40}px)`,
               }}
@@ -85,7 +85,7 @@ export const ProjectsSection = () => {
                   <Image
                     src={project.image}
                     alt={project.title}
-                    className="mt-8 -mb-4 md:-mb-0 lg:mt-0 lg:absolute lg:h-[404px] lg:w-auto lg:max-w-none rounded-lg"
+                    className="mt-8 -mb-4 md:-mb-0 lg:mt-0 lg:h-[404px] lg:w-auto lg:max-w-none rounded-lg"
                   />
                 </div>
               </div>
