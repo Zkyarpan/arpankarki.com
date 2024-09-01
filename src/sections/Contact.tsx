@@ -11,37 +11,57 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { User, Mail, Send, MessageCircle } from "lucide-react";
+import { Mail, Send, MessageCircle, Loader2 } from "lucide-react";
 
 export const ContactSection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState("");
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsModalOpen(false);
-    setName("");
-    setEmail("");
-    setMessage("");
-    toast({
-      description: "Your message has been sent.",
-      duration: 3000,
-    });
+    setIsLoading(true);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, message }),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        toast({
+          description: result.message || "Your message has been sent.",
+          duration: 3000,
+        });
+        setEmail("");
+        setMessage("");
+        setIsModalOpen(false);
+      } else {
+        toast({
+          description:
+            result.message || "Something went wrong. Please try again.",
+          duration: 3000,
+        });
+      }
+    } catch (error) {
+      toast({
+        description: "An error occurred. Please try again.",
+        duration: 3000,
+      });
+    }
   };
 
   return (
     <div id="contact" className="py-8 md:py-16 lg:py-24">
       <div className="container px-4 md:px-6">
         <div className="bg-gradient-to-r from-emerald-300 to-sky-400 text-gray-900 py-8 px-6 md:px-10 rounded-3xl text-center md:text-left relative overflow-hidden z-0">
-          <div
-            className="absolute inset-0 opacity-5 -z-10"
-            style={{
-              backgroundImage: `url('/api/placeholder/400/300')`,
-            }}
-          ></div>
           <div className="flex flex-col md:flex-row gap-6 md:gap-16 items-center">
             <div className="flex-1">
               <h2 className="font-serif text-2xl md:text-3xl font-bold">
@@ -80,25 +100,6 @@ export const ContactSection = () => {
           </DialogHeader>
           <form onSubmit={handleSubmit} className="space-y-4 mt-4">
             <div>
-              <Label htmlFor="name" className="text-teal-400 text-sm">
-                Name
-              </Label>
-              <div className="relative">
-                <Input
-                  id="name"
-                  value={name}
-                  placeholder="Arpan Karki"
-                  onChange={(e) => setName(e.target.value)}
-                  className="bg-[#1e293b] text-white border border-gray-600 p-2 pl-10 font-serif"
-                  required
-                />
-                <User
-                  className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-                  size={16}
-                />
-              </div>
-            </div>
-            <div>
               <Label htmlFor="email" className="text-teal-400 text-sm">
                 Email
               </Label>
@@ -126,7 +127,7 @@ export const ContactSection = () => {
                 <textarea
                   id="message"
                   value={message}
-                  placeholder="Your message here..."
+                  placeholder="I'd love a compliment from you."
                   onChange={(e) => setMessage(e.target.value)}
                   className="bg-[#1e293b] text-white text-sm placeholder-gray-500 border border-gray-600 p-2 pl-10 font-serif w-full h-28 resize-none focus:outline-none focus:ring-0 rounded-lg"
                   required
@@ -139,10 +140,15 @@ export const ContactSection = () => {
             </div>
             <button
               type="submit"
-              className="w-full bg-teal-400 text-black hover:bg-teal-500 p-2 rounded-full flex items-center justify-center font-serif"
+              className="w-full bg-teal-400 text-black hover:bg-teal-500 p-2 rounded-full flex items-center justify-center font-serif disabled:opacity-50 disabled:cursor-not-allowed"
+              disabled={isLoading}
             >
-              <Send className="mr-2" size={16} />
-              Submit
+              {isLoading ? (
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              ) : (
+                <Send className="mr-2" size={16} />
+              )}
+              {isLoading ? "Submitting..." : "Submit"}
             </button>
           </form>
         </DialogContent>

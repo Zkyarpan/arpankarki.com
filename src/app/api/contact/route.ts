@@ -6,7 +6,7 @@ import nodemailer from "nodemailer";
 connectDB();
 
 const transporter = nodemailer.createTransport({
-  host: process.env.EMAIL_HOST,
+  service: "gmail",
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
@@ -16,27 +16,16 @@ const transporter = nodemailer.createTransport({
 export async function POST(request: NextRequest) {
   try {
     const reqBody = await request.json();
-    const { name, email, message } = reqBody;
+    const { email, message } = reqBody;
 
-    if (!name || !email || !message) {
+    if (!email || !message) {
       return NextResponse.json(
         { message: "All fields are required." },
         { status: 400 }
       );
     }
 
-    const existingMessage = await ContactUs.findOne({ email });
-    if (existingMessage) {
-      return NextResponse.json(
-        {
-          message:
-            "You have already sent a message. Please wait for a response.",
-        },
-        { status: 400 }
-      );
-    }
-
-    const newMessage = new ContactUs({ name, email, message });
+    const newMessage = new ContactUs({ email, message });
     await newMessage.save();
 
     await transporter.sendMail({
@@ -44,7 +33,7 @@ export async function POST(request: NextRequest) {
       to: email,
       subject: "Thank you for your message",
       html: `
-        <p>Dear ${name},</p>
+        <p>Dear ${email},</p>
         <p>Thank you for reaching out! We have received your message and will get back to you as soon as possible.</p>
         <p>Best regards,<br>Your Company</p>
       `,
@@ -56,14 +45,13 @@ export async function POST(request: NextRequest) {
       subject: "New Contact Form Submission",
       html: `
         <p>You have received a new message from:</p>
-        <p>Name: ${name}</p>
         <p>Email: ${email}</p>
         <p>Message: ${message}</p>
       `,
     });
 
     return NextResponse.json({
-      message: "Your message has been received. Thank you!",
+      message: "Submitted successfully! It's time to celebrate",
       success: true,
     });
   } catch (error: any) {
