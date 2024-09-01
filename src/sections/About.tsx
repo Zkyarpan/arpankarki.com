@@ -111,7 +111,7 @@ const hobbies = [
   },
   {
     title: "Music",
-    emoji: "🎼",
+    emoji: "🎶  ",
     left: "70%",
     top: "40%",
   },
@@ -123,9 +123,51 @@ const hobbies = [
   },
   {
     title: "Reading",
-    emoji: "⛹️‍♀️",
+    emoji: "📚",
     left: "45%",
     top: "70%",
+  },
+  {
+    title: "Cooking",
+    emoji: "🍳",
+    left: "20%",
+    top: "20%",
+  },
+  {
+    title: "Gardening",
+    emoji: "🌻",
+    left: "60%",
+    top: "20%",
+  },
+  {
+    title: "Gaming",
+    emoji: "🎮",
+    left: "80%",
+    top: "60%",
+  },
+  {
+    title: "Writing",
+    emoji: "✍️",
+    left: "25%",
+    top: "50%",
+  },
+  {
+    title: "Dancing",
+    emoji: "💃",
+    left: "75%",
+    top: "30%",
+  },
+  {
+    title: "Camping",
+    emoji: "🏕️",
+    left: "30%",
+    top: "75%",
+  },
+  {
+    title: "Cycling",
+    emoji: "🚴‍♂️",
+    left: "70%",
+    top: "55%",
   },
 ];
 
