@@ -12,7 +12,7 @@ const bricolageGrotesque = Bricolage_Grotesque({
 });
 
 export const metadata: Metadata = {
-  title: "Arpan Karki",
+  title: "Arpan Karki - Developer,Writer,Creator ",
 };
 
 export default function RootLayout({

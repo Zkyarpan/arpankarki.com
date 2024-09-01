@@ -56,7 +56,7 @@ export const ContactSection = () => {
         duration: 3000,
       });
     } finally {
-      setIsLoading(false); // Ensure loader is stopped in both success and error cases
+      setIsLoading(false); 
     }
   };
 
