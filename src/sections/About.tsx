@@ -10,7 +10,15 @@ import CSS from "@/assets/icons/css3.svg";
 import ReactIcon from "@/assets/icons/react.svg";
 import ChromeIcon from "@/assets/icons/chrome.svg";
 import GithubIcon from "@/assets/icons/github.svg";
+import DockerIcon from "@/assets/icons/docker.svg";
+import PostmanIcon from "@/assets/icons/postman.svg";
+import NextIcon from "@/assets/icons/nextjs.svg";
+import TailwindIcon from "@/assets/icons/tailwindcss.svg";
 import mapImage from "@/assets/images/Map.jpg";
+import NodeIcon from "@/assets/icons/node-js.svg";
+import TypeScript from "@/assets/icons/typescript.svg";
+import MongoIcon from "@/assets/icons/mongodb.svg";
+import MySqlIcon from "@/assets/icons/sql.svg";
 import smileMemoji from "@/assets/images/memoji-smile.png";
 import CardHeader from "../components/CardHeader";
 import ToolboxItem from "@/components/ToolboxItem";
@@ -18,10 +26,6 @@ import { motion } from "framer-motion";
 import { useRef } from "react";
 
 const toolboxItems = [
-  {
-    title: "JavaScript",
-    iconType: JavasctiptIcon,
-  },
   {
     title: "HTML5",
     iconType: HtmlIcon,
@@ -31,7 +35,11 @@ const toolboxItems = [
     iconType: CSS,
   },
   {
-    title: "React",
+    title: "JavaScript",
+    iconType: JavasctiptIcon,
+  },
+  {
+    title: "ReactJS",
     iconType: ReactIcon,
   },
   {
@@ -41,6 +49,38 @@ const toolboxItems = [
   {
     title: "Github",
     iconType: GithubIcon,
+  },
+  {
+    title: "Docker",
+    iconType: DockerIcon,
+  },
+  {
+    title: "Postman",
+    iconType: PostmanIcon,
+  },
+  {
+    title: "NextJS",
+    iconType: NextIcon,
+  },
+  {
+    title: "TailwindCSS",
+    iconType: TailwindIcon,
+  },
+  {
+    title: "NodeJS",
+    iconType: NodeIcon,
+  },
+  {
+    title: "MongoDB",
+    iconType: MongoIcon,
+  },
+  {
+    title: "MySQL",
+    iconType: MySqlIcon,
+  },
+  {
+    title: "TypeScript",
+    iconType: TypeScript,
   },
 ];
 

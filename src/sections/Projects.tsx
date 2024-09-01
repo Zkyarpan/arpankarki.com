@@ -54,8 +54,7 @@ export const ProjectsSection = () => {
         <SectionHeader
           eyebrow="Real-World Results"
           title="Featured Projects"
-          description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit
-          provident voluptatibus quis doloribus consequatur aliquid."
+          description="Check out some of my best projects. Each one highlights my skills and the real-world results I've achieved."
         />
         <div className="flex md:mt-20 flex-col mt-10 gap-20">
           {portfolioProjects.map((project, projectIndex) => (
