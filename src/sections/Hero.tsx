@@ -115,13 +115,13 @@ export const HeroSection = () => {
             <div className="bg-green-500 w-2.5 h-2.5 rounded-full relative">
               <div className="bg-green-500 absolute inset-0 rounded-full animate-ping-large"></div>
             </div>
-            <div className="text-sm  text-white/80">
+            <div className="text-sm  text-white">
               Available for new projects
             </div>
           </div>
         </div>
         <div className="max-w-lg mx-auto">
-          <h1 className="font-serif text-3xl md:text-5xl text-center mt-8 tracking-wide text-white/80">
+          <h1 className="font-serif text-3xl md:text-5xl text-center mt-8 tracking-wide text-white">
             Hey, I&apos;m Arpan
           </h1>
           <p className="mt-4 text-center text-white/60 md:text-lg">
