@@ -20,7 +20,7 @@ export const Header: React.FC = () => {
   }, []);
 
   const updateIsMobileOrTablet = () => {
-    setIsMobileOrTablet(window.innerWidth <= 1024); // Adjust breakpoint to include tablets
+    setIsMobileOrTablet(window.innerWidth <= 1200);
   };
 
   useEffect(() => {
@@ -85,9 +85,7 @@ export const Header: React.FC = () => {
     };
   }, [activeLink]);
 
-  useEffect(() => {
-    console.log(`Active link changed: ${activeLink}`); // Log when the active link changes
-  }, [activeLink]);
+  useEffect(() => {}, [activeLink]);
 
   return (
     <motion.div className="flex justify-between items-center fixed top-3 w-full z-10">
@@ -146,7 +144,7 @@ export const Header: React.FC = () => {
           </button>
 
           <motion.div
-            className={`fixed top-5 left-2 lg:hidden sm:left-4 sm:h-[35%] md:h-[32%] w-[40%] sm:w-[30%] md:w-[32%]  bg-black/50 border border-white/20 z-10 p-1 rounded-3xl backdrop-blur-md shadow-lg mt-10 text-center ${
+            className={`fixed top-5 left-2 lg:hidden sm:left-4 w-[50%] sm:w-[40%] md:w-[30%] bg-black/50 border border-white/20 z-10 p-1 rounded-3xl backdrop-blur-md shadow-lg mt-10 text-center ${
               menuOpen ? "block" : "hidden"
             }`}
             initial={{ x: "-100%" }}
