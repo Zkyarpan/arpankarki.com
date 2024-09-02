@@ -13,7 +13,6 @@ import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Send, MessageCircle, Loader2 } from "lucide-react";
 
-
 export const ContactSection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [email, setEmail] = useState("");
@@ -91,7 +90,7 @@ export const ContactSection = () => {
       </div>
 
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent className="sm:max-w-[300px] md:max-w-[350px] lg:max-w-[405px] bg-[#0b1120] text-white p-4 sm:p-6 md:p-8">
+        <DialogContent className="sm:max-w-[350px] md:max-w-[450px] lg:max-w-[400px] bg-[#0b1120] border-white/20 p-4 sm:p-6 md:p-8">
           <DialogHeader>
             <DialogTitle className="text-teal-400 text-base sm:text-lg md:text-xl">
               Contact Me
@@ -113,7 +112,7 @@ export const ContactSection = () => {
                   value={email}
                   placeholder="Arpankarki23@gmail.com"
                   onChange={(e) => setEmail(e.target.value)}
-                  className="bg-[#1e293b] text-white border border-gray-600 p-2 pl-10 font-serif"
+                  className="bg-[#1e293b] text-white text-sm sm:text-base md:text-lg border border-gray-600 p-2 pl-10 font-serif"
                   required
                 />
                 <Mail
@@ -132,11 +131,11 @@ export const ContactSection = () => {
                   value={message}
                   placeholder="I'd love a compliment from you."
                   onChange={(e) => setMessage(e.target.value)}
-                  className="bg-[#1e293b] text-white text-xs sm:text-sm md:text-base placeholder-gray-500 border border-gray-600 p-2 pl-10 font-serif w-full h-28 resize-none focus:outline-none focus:ring-0 rounded-lg"
+                  className="bg-[#1e293b] text-white text-sm sm:text-base md:text-lg placeholder-gray-500 border border-gray-600 p-2 pl-10 font-serif w-full h-28 resize-none focus:outline-none focus:ring-0 rounded-lg"
                   required
                 />
                 <MessageCircle
-                  className="absolute left-3 top-5 transform -translate-y-1/2 text-gray-400"
+                  className="absolute left-3 top-6 transform -translate-y-1/2 text-gray-400"
                   size={16}
                 />
               </div>
