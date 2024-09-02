@@ -90,12 +90,12 @@ export const ContactSection = () => {
       </div>
 
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent className="sm:max-w-[350px] sm:-10 bg-[#0b1120] text-white p-4 sm:p-6 md:max-w-[390px] lg:max-w-[405px]">
+        <DialogContent className="sm:max-w-[300px] md:max-w-[350px] lg:max-w-[405px] bg-[#0b1120] text-white p-4 sm:p-6 md:p-8">
           <DialogHeader>
-            <DialogTitle className="text-teal-400 text-lg md:text-xl">
+            <DialogTitle className="text-teal-400 text-base sm:text-lg md:text-xl">
               Contact Me
             </DialogTitle>
-            <DialogDescription className="text-sm md:text-base">
+            <DialogDescription className="text-xs sm:text-sm md:text-base">
               Fill out this form and I&apos;ll get back to you as soon as
               possible.
             </DialogDescription>
@@ -122,7 +122,7 @@ export const ContactSection = () => {
               </div>
             </div>
             <div>
-              <Label htmlFor="message" className="text-teal-400 ">
+              <Label htmlFor="message" className="text-teal-400 text-sm">
                 Message
               </Label>
               <div className="relative">
@@ -131,7 +131,7 @@ export const ContactSection = () => {
                   value={message}
                   placeholder="I'd love a compliment from you."
                   onChange={(e) => setMessage(e.target.value)}
-                  className="bg-[#1e293b] text-white text-sm placeholder-gray-500 border border-gray-600 p-2 pl-10 font-serif w-full h-28 resize-none focus:outline-none focus:ring-0 rounded-lg"
+                  className="bg-[#1e293b] text-white text-xs sm:text-sm md:text-base placeholder-gray-500 border border-gray-600 p-2 pl-10 font-serif w-full h-28 resize-none focus:outline-none focus:ring-0 rounded-lg"
                   required
                 />
                 <MessageCircle

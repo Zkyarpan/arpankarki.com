@@ -204,12 +204,12 @@ export const AboutSection = () => {
               <ToolboxItem
                 items={toolboxItems}
                 className="mt-6"
-                itemsWrappeClassName="animate-move-left [animation-duration:15s]"
+                itemsWrappeClassName="animate-move-left [animation-duration:50s]"
               />
               <ToolboxItem
                 items={toolboxItems}
                 className="mt-6"
-                itemsWrappeClassName="animate-move-right [animation-duration:15s]"
+                itemsWrappeClassName="animate-move-right [animation-duration:50s]"
               />
             </Card>
           </div>
@@ -261,5 +261,3 @@ export const AboutSection = () => {
     </div>
   );
 };
-
-// AIzaSyBujjWu7AtcJNi3R5ct7fuLPewQZ4rUSSA

@@ -73,7 +73,7 @@ export const Header: React.FC = () => {
 
   return (
     <motion.div className="flex justify-center items-center fixed top-3 w-full z-10">
-      <nav className="flex gap-1 p-1 border border-white/20 rounded-full bg-black/50 backdrop-blur-md shadow-lg">
+      <nav className="flex sm:gap-1 md:gap-2 lg:gap-3 sm:p-1 md:p-1 lg:p-1 border border-white/20 rounded-full bg-black/50 backdrop-blur-md shadow-lg">
         {["home", "projects", "about", "contact"].map((link) => (
           <motion.a
             key={link}
@@ -82,7 +82,7 @@ export const Header: React.FC = () => {
               e.preventDefault();
               handleSetActive(link);
             }}
-            className={`relative px-4 py-2 rounded-full text-white transition-colors duration-300 ${
+            className={`relative sm:px-3 md:px-4 lg:px-5 py-2 rounded-full text-white transition-colors duration-300 ${
               activeLink === link
                 ? "text-white"
                 : "text-white/70 hover:text-white"
