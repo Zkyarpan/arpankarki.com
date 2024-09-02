@@ -107,7 +107,9 @@ export const HeroSection = () => {
           <Image
             src={mainImage}
             className="rounded-full border-4 border-gray-800 shadow-lg w-[160px] h-[160px] object-cover "
-            alt="Person with laptop"
+            alt="ArpanHeroSecion"
+            priority
+            placeholder="blur"
           />
           <div className="bg-gray-950 border border-gray-800 px-4 py-1.5 inline-flex items-center gap-4 rounded-lg mt-4">
             <div className="bg-green-500 w-2.5 h-2.5 rounded-full relative">
