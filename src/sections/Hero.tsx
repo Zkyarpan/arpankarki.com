@@ -1,5 +1,5 @@
 import Image from "next/image";
-import momojiImage from "@/assets/images/memoji-computer.png";
+import mainImage from "@/assets/images/main.jpg";
 import grainImage from "@/assets/images/grain.jpg";
 import StarIcon from "@/assets/icons/star.svg";
 import HeroOrbit from "../components/HeroOrbit";
@@ -101,28 +101,29 @@ export const HeroSection = () => {
           <StarIcon className="size-8 text-emerald-300" />
         </HeroOrbit>
       </div>
+
       <div className="container lg:-mt-20">
         <div className="flex flex-col items-center">
           <Image
-            src={momojiImage}
-            className="size-[100px]"
+            src={mainImage}
+            className="rounded-full border-4 border-gray-800 shadow-lg w-[160px] h-[160px] object-cover "
             alt="Person with laptop"
           />
-          <div className="bg-gray-950 border border-gray-800 px-4 py-1.5 inline-flex items-center gap-4 rounded-lg">
-            <div className="bg-green-500 size-2.5 rounded-full relative">
+          <div className="bg-gray-950 border border-gray-800 px-4 py-1.5 inline-flex items-center gap-4 rounded-lg mt-4">
+            <div className="bg-green-500 w-2.5 h-2.5 rounded-full relative">
               <div className="bg-green-500 absolute inset-0 rounded-full animate-ping-large"></div>
             </div>
-            <div className="text-sm font-medium font-serif">
+            <div className="text-sm  text-white/80">
               Available for new projects
             </div>
           </div>
         </div>
         <div className="max-w-lg mx-auto">
-          <h1 className="font-serif text-3xl md:text-5xl text-center mt-8 tracking-wide">
+          <h1 className="font-serif text-3xl md:text-5xl text-center mt-8 tracking-wide text-white/80">
             Hey, I&apos;m Arpan
           </h1>
           <p className="mt-4 text-center text-white/60 md:text-lg">
-            i&apos;m a student interested in comp sci, web dev, design, and
+            I&apos;m a student interested in comp sci, web dev, design, and
             more.
           </p>
         </div>

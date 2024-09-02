@@ -10,7 +10,7 @@ import { Fragment } from "react";
 
 const testimonials = [
   {
-    name: "Alex Turner",
+    name: "Mobin Tuner",
     position: "Marketing Manager @ TechStartups",
     text: "Arpan, despite being a student, made a significant impact on our website. His attention to detail and understanding of our brand were impressive. We're very pleased with the results!",
     avatar: monday,
@@ -28,13 +28,13 @@ const testimonials = [
     avatar: arpan2,
   },
   {
-    name: "Emily Carter",
+    name: "Rahul Giri",
     position: "Product Manager @ GlobalTech",
     text: "Arpan is a skilled software engineer who turned our complex product into an intuitive interface. We've received great feedback from our users.",
     avatar: rahul,
   },
   {
-    name: "Michael Brown",
+    name: "Suman Limbu",
     position: "Director of IT @ MegaCorp",
     text: "Arpan’s work on our website has been outstanding. Even as a student, his skills and communication are excellent. We highly recommend him.",
     avatar: suman,

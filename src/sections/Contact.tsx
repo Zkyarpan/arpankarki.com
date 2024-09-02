@@ -110,7 +110,7 @@ export const ContactSection = () => {
                   id="email"
                   type="email"
                   value={email}
-                  placeholder="Arpankarki23@gmail.com"
+                  placeholder="arpankarki23@xyz.com"
                   onChange={(e) => setEmail(e.target.value)}
                   className="bg-[#1e293b] text-white text-sm sm:text-base md:text-lg border border-gray-600 p-2 pl-10 font-serif"
                   required
@@ -135,7 +135,7 @@ export const ContactSection = () => {
                   required
                 />
                 <MessageCircle
-                  className="absolute left-3 top-6 transform -translate-y-1/2 text-gray-400"
+                  className="absolute left-3 lg:top-6 top-5 transform -translate-y-1/2 text-gray-400"
                   size={16}
                 />
               </div>

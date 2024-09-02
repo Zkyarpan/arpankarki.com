@@ -74,7 +74,7 @@ export const ProjectsSection = () => {
                       rel="noopener noreferrer"
                       className="block"
                     >
-                      <button className="bg-white text-gray-950 h-12 w-full px-6 rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-8 lg:w-[50%]">
+                      <button className="bg-gradient-to-r from-emerald-400 to-sky-500 text-black h-12 w-full px-6 rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-8 lg:w-[50%] lg:mt-20 shadow-lg transform transition-transform duration-200 hover:scale-105 hover:shadow-xl">
                         <FaGithub className="size-4" />
                         <span>Source Code</span>
                       </button>
