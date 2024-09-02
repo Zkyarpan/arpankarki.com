@@ -31,11 +31,12 @@ export async function POST(request: NextRequest) {
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
       to: email,
-      subject: "Thank you for your message",
+      subject: "Thank you for reaching out to Arpan",
       html: `
-        <p>Dear ${email},</p>
-        <p>Thank you for reaching out! I have received your message and will get back to you as soon as possible.</p>
-        <p>Best regards,<br>Arpan Karki</p>
+        <p>Dear ${email}👋,</p>
+    <p>Thank you for reaching out through my website! I’m thrilled to connect and can’t wait to work together.</p>
+    <p>Until then, take care and keep shining!</p>
+    <p>With gratitude,<br>Arpan Karki</p>
       `,
     });
 
