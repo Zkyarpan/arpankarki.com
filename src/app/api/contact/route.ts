@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
       to: email,
       subject: "Thank you for reaching out to Arpan",
       html: `
-        <p>Dear ${email}👋,</p>
+        <p>Dear ${email} 👋,</p>
     <p>Thank you for reaching out through my website! I’m thrilled to connect and can’t wait to work together.</p>
     <p>Until then, take care and keep shining!</p>
     <p>With gratitude,<br>Arpan Karki</p>
