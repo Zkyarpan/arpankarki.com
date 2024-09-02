@@ -136,7 +136,7 @@ export const Header: React.FC = () => {
               <Image
                 src={MenuIcon}
                 alt="Menu"
-                className="w-10 h-10"
+                className="w-8 h-8 sm:w-10 sm:h-10 md:w-[60px] md:h-[60px]"
                 priority
                 placeholder="blur"
               />
