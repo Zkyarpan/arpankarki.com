@@ -142,7 +142,7 @@ export const ContactSection = () => {
             </div>
             <button
               type="submit"
-              className="w-full bg-teal-400 text-black hover:bg-teal-500 p-2 rounded-full flex items-center justify-center font-serif disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-gradient-to-r from-emerald-300 to-sky-400 hover:from-sky-400 hover:to-emerald-300 text-gray-900 p-2 rounded-full flex items-center justify-center font-serif disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={isLoading}
             >
               {isLoading ? (
