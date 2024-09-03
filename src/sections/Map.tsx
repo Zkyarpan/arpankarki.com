@@ -21,7 +21,7 @@ function MapComponent() {
         <Image
           src={MapImage}
           alt="arpan"
-          className="rounded-full shadow-lg w-[70px] h-[70px]"
+          className="rounded-full shadow-lg w-[30px] h-[30px]"
         />
       </div>
     </Card>
