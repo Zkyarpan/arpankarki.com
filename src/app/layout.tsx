@@ -13,7 +13,10 @@ const bricolageGrotesque = Bricolage_Grotesque({
 });
 
 export const metadata: Metadata = {
-  title: "Arpan Karki - Developer,Writer,Creator ",
+  title: "Arpan Karki - Developer,Writer,Creator",
+  icons: {
+    shortcut: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
