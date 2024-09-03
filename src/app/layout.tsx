@@ -3,6 +3,7 @@ import { Inter, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 import { twMerge } from "tailwind-merge";
 import { Toaster } from "@/components/ui/toaster";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const bricolageGrotesque = Bricolage_Grotesque({
@@ -30,6 +31,7 @@ export default function RootLayout({
           "bg-gray-900 text-white antialiased font-sans"
         )}
       >
+        <SpeedInsights />
         {children}
         <Toaster />
       </body>
