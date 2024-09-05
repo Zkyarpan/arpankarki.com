@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
+import { CoolMode } from "@/components/magicui/cool-mode";
+
 import {
   Dialog,
   DialogContent,
@@ -75,15 +77,17 @@ export const ContactSection = () => {
               </p>
             </div>
             <div className="mt-4 md:mt-0">
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className="button-82-pushable"
-                role="button"
-              >
-                <span className="button-82-shadow"></span>
-                <span className="button-82-edge"></span>
-                <span className="button-82-front font-serif">Contact Me</span>
-              </button>
+              <CoolMode>
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className="button-82-pushable"
+                  role="button"
+                >
+                  <span className="button-82-shadow"></span>
+                  <span className="button-82-edge"></span>
+                  <span className="button-82-front font-serif">Contact Me</span>
+                </button>
+              </CoolMode>
             </div>
           </div>
         </div>
@@ -140,18 +144,20 @@ export const ContactSection = () => {
                 />
               </div>
             </div>
-            <button
-              type="submit"
-              className="w-full bg-gradient-to-r from-emerald-300 to-sky-400 hover:from-sky-400 hover:to-emerald-300 text-gray-900 p-2 rounded-full flex items-center justify-center font-serif disabled:opacity-50 disabled:cursor-not-allowed"
-              disabled={isLoading}
-            >
-              {isLoading ? (
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              ) : (
-                <Send className="mr-2" size={16} />
-              )}
-              {isLoading ? "Submitting..." : "Submit"}
-            </button>
+            <CoolMode>
+              <button
+                type="submit"
+                className="w-full bg-gradient-to-r from-emerald-300 to-sky-400 hover:from-sky-400 hover:to-emerald-300 text-gray-900 p-2 rounded-full flex items-center justify-center font-serif disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={isLoading}
+              >
+                {isLoading ? (
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                ) : (
+                  <Send className="mr-2" size={16} />
+                )}
+                {isLoading ? "Submitting..." : "Submit"}
+              </button>
+            </CoolMode>
           </form>
         </DialogContent>
       </Dialog>

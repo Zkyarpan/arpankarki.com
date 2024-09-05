@@ -26,6 +26,7 @@ import { motion } from "framer-motion";
 import { useRef } from "react";
 import ArpanMap from "@/assets/images/arpanwithmap.jpg";
 import MapComponent from "./Map";
+import { IconCloudDemo } from "@/components/InteractiveIconCloud";
 
 const toolboxItems = [
   {
@@ -194,22 +195,14 @@ export const AboutSection = () => {
                 <Image src={bookImage} alt="bookImage" />
               </div>
             </Card>
-            <Card className="h-[320px] p-0 md:col-span-3 lg:col-span-2">
+            <Card className="h-[320px] p-0 md:col-span-3 lg:col-span-2 shadow-lg">
+              <div className="flex justify-center h-[200px] overflow-hidden">
+                <IconCloudDemo />
+              </div>
               <CardHeader
                 title="My Toolbox"
-                description="Explore the technologies and tools I use to craft exceptional
-                digital experiences."
-                className="px-6 pt-6"
-              />
-              <ToolboxItem
-                items={toolboxItems}
-                className="mt-6"
-                itemsWrappeClassName="animate-move-left [animation-duration:50s] hover:[animation-play-state:paused]"
-              />
-              <ToolboxItem
-                items={toolboxItems}
-                className="mt-6"
-                itemsWrappeClassName="animate-move-right [animation-duration:50s] hover:[animation-play-state:paused]"
+                description="Explore the technologies and tools I use to craft exceptional digital experiences."
+                className="flex flex-col lg:flex-row justify-between text-sm sm:text-md lg:text-lg px-4 pt-4 sm:px-6 sm:pt-6 lg:px-8 lg:pt-8 text-white"
               />
             </Card>
           </div>
