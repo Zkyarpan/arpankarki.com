@@ -116,7 +116,7 @@ export const HeroSection = () => {
               <div className="bg-green-500 absolute inset-0 rounded-full animate-ping-large text-center justify-center"></div>
             </div>
             <div className="text-sm font-serif text-white">
-              Available for new projects
+              Let&apos;s work together
             </div>
           </div>
         </div>
