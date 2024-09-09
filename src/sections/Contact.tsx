@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 
 import {
   Dialog,
@@ -16,13 +18,17 @@ import { Mail, Send, MessageCircle, Loader2 } from "lucide-react";
 
 export const ContactSection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [message, setMessage] = useState("");
   const { toast } = useToast();
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const validationSchema = Yup.object({
+    email: Yup.string()
+      .email("Invalid email address")
+      .required("Email is required"),
+    message: Yup.string().required("Message is required"),
+  });
+
+  const handleSubmit = async (values: any, { resetForm }: any) => {
     setIsLoading(true);
 
     try {
@@ -31,7 +37,7 @@ export const ContactSection = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, message }),
+        body: JSON.stringify(values),
       });
 
       const result = await response.json();
@@ -41,8 +47,7 @@ export const ContactSection = () => {
           description: result.message || "Your message has been sent.",
           duration: 3000,
         });
-        setEmail("");
-        setMessage("");
+        resetForm();
         setIsModalOpen(false);
       } else {
         toast({
@@ -91,7 +96,7 @@ export const ContactSection = () => {
       </div>
 
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent className="sm:max-w-[350px] sm:-mt-20 md:max-w-[450px] lg:max-w-[400px] bg-gray-950 border-teal-400/30 p-4 sm:p-6 md:p-8">
+        <DialogContent className="sm:max-w-[350px] md:max-w-[450px] lg:max-w-[400px] bg-gray-950 border-teal-400/30 p-4 sm:p-6 md:p-8">
           <DialogHeader>
             <DialogTitle className="text-teal-400 text-base sm:text-lg md:text-xl">
               Contact Me
@@ -101,59 +106,85 @@ export const ContactSection = () => {
               possible.
             </DialogDescription>
           </DialogHeader>
-          <form onSubmit={handleSubmit} className="space-y-4 mt-4">
-            <div>
-              <Label htmlFor="email" className="text-teal-400 text-sm">
-                Email
-              </Label>
-              <div className="relative">
-                <Input
-                  id="email"
-                  type="email"
-                  value={email}
-                  placeholder="arpankarki23@xyz.com"
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="bg-[#1e293b] text-white text-sm sm:text-base md:text-lg border border-gray-600 p-5 pl-10"
-                  required
-                />
-                <Mail
-                  className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-                  size={16}
-                />
-              </div>
-            </div>
-            <div>
-              <Label htmlFor="message" className="text-teal-400 text-sm">
-                Message
-              </Label>
-              <div className="relative">
-                <textarea
-                  id="message"
-                  value={message}
-                  placeholder="I'd love a compliment from you."
-                  onChange={(e) => setMessage(e.target.value)}
-                  className="bg-[#1e293b] text-white text-sm sm:text-base md:text-lg placeholder-gray-500 border border-gray-600 p-2 pl-10 w-full h-28 resize-none focus:outline-none focus:ring-0 rounded-lg"
-                  required
-                />
-                <MessageCircle
-                  className="absolute left-3 lg:top-6 top-5 transform -translate-y-1/2 text-gray-400"
-                  size={16}
-                />
-              </div>
-            </div>
-            <button
-              type="submit"
-              className="w-full bg-gradient-to-r from-emerald-300 to-sky-400 hover:from-sky-400 hover:to-emerald-300 text-gray-900 p-2 rounded-full flex items-center justify-center font-serif disabled:opacity-50 disabled:cursor-not-allowed"
-              disabled={isLoading}
-            >
-              {isLoading ? (
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              ) : (
-                <Send className="mr-2" size={16} />
-              )}
-              {isLoading ? "Submitting..." : "Submit"}
-            </button>
-          </form>
+
+          <Formik
+            initialValues={{ email: "", message: "" }}
+            validationSchema={validationSchema}
+            onSubmit={handleSubmit}
+          >
+            {({ errors, touched }) => (
+              <Form className="space-y-4 mt-4">
+                <div>
+                  <Label htmlFor="email" className="text-teal-400 text-sm">
+                    Email
+                  </Label>
+                  <div className="relative">
+                    <Field
+                      id="email"
+                      name="email"
+                      type="email"
+                      placeholder="arpankarki@xyz.com"
+                      className={`bg-[#1e293b] text-white text-sm sm:text-base md:text-lg placeholder-gray-500 border p-2 pl-10 w-full resize-none focus:outline-none focus:ring-0 rounded-lg ${
+                        errors.email && touched.email
+                          ? "border-red-500"
+                          : "border-gray-600"
+                      }`}
+                    />
+                    <Mail
+                      className="absolute left-3 top-6 transform -translate-y-1/2 text-gray-400"
+                      size={16}
+                    />
+                    <ErrorMessage
+                      name="email"
+                      component="div"
+                      className="text-red-500 text-xs mt-1"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <Label htmlFor="message" className="text-teal-400 text-sm">
+                    Message
+                  </Label>
+                  <div className="relative">
+                    <Field
+                      as="textarea"
+                      id="message"
+                      name="message"
+                      placeholder="I'd love a compliment from you."
+                      className={`bg-[#1e293b] text-white text-sm sm:text-base md:text-lg placeholder-gray-500 border p-2 pl-10 w-full h-28 resize-none focus:outline-none focus:ring-0 rounded-lg ${
+                        errors.message && touched.message
+                          ? "border-red-500"
+                          : "border-gray-600"
+                      }`}
+                    />
+                    <MessageCircle
+                      className="absolute left-3 lg:top-6 top-5 transform -translate-y-1/2 text-gray-400"
+                      size={16}
+                    />
+                    <ErrorMessage
+                      name="message"
+                      component="div"
+                      className="text-red-500 text-xs mt-1"
+                    />
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-emerald-300 to-sky-400 hover:from-sky-400 hover:to-emerald-300 text-gray-900 p-2 rounded-full flex items-center justify-center font-serif disabled:opacity-50 disabled:cursor-not-allowed"
+                  disabled={isLoading}
+                >
+                  {isLoading ? (
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  ) : (
+                    <Send className="mr-2" size={16} />
+                  )}
+                  {isLoading ? "Submitting..." : "Submit"}
+                </button>
+              </Form>
+            )}
+          </Formik>
         </DialogContent>
       </Dialog>
     </div>

@@ -20,6 +20,7 @@
     "@vercel/speed-insights": "^1.0.12",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "formik": "^2.4.6",
     "framer-motion": "^11.5.4",
     "jsonwebtoken": "^9.0.2",
     "leaflet": "^1.9.4",
@@ -37,7 +38,8 @@
     "roughjs": "^4.6.6",
     "sharp": "^0.33.5",
     "tailwind-merge": "^2.5.2",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "@types/jsonwebtoken": "^9.0.6",
