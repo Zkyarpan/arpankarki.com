@@ -4,88 +4,11 @@ import SectionHeader from "@/components/SectionHeader";
 import Card from "@/components/Card";
 import bookImage from "@/assets/images/book-cover.png";
 import Image from "next/image";
-import JavasctiptIcon from "@/assets/icons/square-js.svg";
-import HtmlIcon from "@/assets/icons/html5.svg";
-import CSS from "@/assets/icons/css3.svg";
-import ReactIcon from "@/assets/icons/react.svg";
-import ChromeIcon from "@/assets/icons/chrome.svg";
-import GithubIcon from "@/assets/icons/github.svg";
-import DockerIcon from "@/assets/icons/docker.svg";
-import PostmanIcon from "@/assets/icons/postman.svg";
-import NextIcon from "@/assets/icons/nextjs.svg";
-import TailwindIcon from "@/assets/icons/tailwindcss.svg";
-import mapImage from "@/assets/images/Map.jpg";
-import NodeIcon from "@/assets/icons/node-js.svg";
-import TypeScript from "@/assets/icons/typescript.svg";
-import MongoIcon from "@/assets/icons/mongodb.svg";
-import MySqlIcon from "@/assets/icons/sql.svg";
 import CardHeader from "../components/CardHeader";
-import ToolboxItem from "@/components/ToolboxItem";
-import Arpan from "@/assets/images/arpan.png";
 import { motion } from "framer-motion";
 import { useRef } from "react";
-import ArpanMap from "@/assets/images/arpanwithmap.jpg";
 import MapComponent from "./Map";
 import { IconCloudDemo } from "@/components/InteractiveIconCloud";
-
-const toolboxItems = [
-  {
-    title: "HTML5",
-    iconType: HtmlIcon,
-  },
-  {
-    title: "CSS",
-    iconType: CSS,
-  },
-  {
-    title: "JavaScript",
-    iconType: JavasctiptIcon,
-  },
-  {
-    title: "ReactJS",
-    iconType: ReactIcon,
-  },
-  {
-    title: "Chrome",
-    iconType: ChromeIcon,
-  },
-  {
-    title: "Github",
-    iconType: GithubIcon,
-  },
-  {
-    title: "Docker",
-    iconType: DockerIcon,
-  },
-  {
-    title: "Postman",
-    iconType: PostmanIcon,
-  },
-  {
-    title: "NextJS",
-    iconType: NextIcon,
-  },
-  {
-    title: "TailwindCSS",
-    iconType: TailwindIcon,
-  },
-  {
-    title: "NodeJS",
-    iconType: NodeIcon,
-  },
-  {
-    title: "MongoDB",
-    iconType: MongoIcon,
-  },
-  {
-    title: "MySQL",
-    iconType: MySqlIcon,
-  },
-  {
-    title: "TypeScript",
-    iconType: TypeScript,
-  },
-];
 
 const hobbies = [
   {

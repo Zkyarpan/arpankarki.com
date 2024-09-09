@@ -8,7 +8,7 @@ const contactUsSchema = new mongoose.Schema(
       trim: true,
     },
     message: {
-      type: String, 
+      type: String,
       required: true,
       trim: true,
     },

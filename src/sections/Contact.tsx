@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { CoolMode } from "@/components/magicui/cool-mode";
 
 import {
   Dialog,
@@ -77,17 +76,15 @@ export const ContactSection = () => {
               </p>
             </div>
             <div className="mt-4 md:mt-0">
-              <CoolMode>
-                <button
-                  onClick={() => setIsModalOpen(true)}
-                  className="button-82-pushable"
-                  role="button"
-                >
-                  <span className="button-82-shadow"></span>
-                  <span className="button-82-edge"></span>
-                  <span className="button-82-front font-serif">Contact Me</span>
-                </button>
-              </CoolMode>
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="button-82-pushable"
+                role="button"
+              >
+                <span className="button-82-shadow"></span>
+                <span className="button-82-edge"></span>
+                <span className="button-82-front font-serif">Contact Me</span>
+              </button>
             </div>
           </div>
         </div>
@@ -116,7 +113,7 @@ export const ContactSection = () => {
                   value={email}
                   placeholder="arpankarki23@xyz.com"
                   onChange={(e) => setEmail(e.target.value)}
-                  className="bg-[#1e293b] text-white text-sm sm:text-base md:text-lg border border-gray-600 p-2 pl-10 font-serif"
+                  className="bg-[#1e293b] text-white text-sm sm:text-base md:text-lg border border-gray-600 p-5 pl-10"
                   required
                 />
                 <Mail
@@ -135,7 +132,7 @@ export const ContactSection = () => {
                   value={message}
                   placeholder="I'd love a compliment from you."
                   onChange={(e) => setMessage(e.target.value)}
-                  className="bg-[#1e293b] text-white text-sm sm:text-base md:text-lg placeholder-gray-500 border border-gray-600 p-2 pl-10 font-serif w-full h-28 resize-none focus:outline-none focus:ring-0 rounded-lg"
+                  className="bg-[#1e293b] text-white text-sm sm:text-base md:text-lg placeholder-gray-500 border border-gray-600 p-2 pl-10 w-full h-28 resize-none focus:outline-none focus:ring-0 rounded-lg"
                   required
                 />
                 <MessageCircle
@@ -144,20 +141,18 @@ export const ContactSection = () => {
                 />
               </div>
             </div>
-            <CoolMode>
-              <button
-                type="submit"
-                className="w-full bg-gradient-to-r from-emerald-300 to-sky-400 hover:from-sky-400 hover:to-emerald-300 text-gray-900 p-2 rounded-full flex items-center justify-center font-serif disabled:opacity-50 disabled:cursor-not-allowed"
-                disabled={isLoading}
-              >
-                {isLoading ? (
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                ) : (
-                  <Send className="mr-2" size={16} />
-                )}
-                {isLoading ? "Submitting..." : "Submit"}
-              </button>
-            </CoolMode>
+            <button
+              type="submit"
+              className="w-full bg-gradient-to-r from-emerald-300 to-sky-400 hover:from-sky-400 hover:to-emerald-300 text-gray-900 p-2 rounded-full flex items-center justify-center font-serif disabled:opacity-50 disabled:cursor-not-allowed"
+              disabled={isLoading}
+            >
+              {isLoading ? (
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              ) : (
+                <Send className="mr-2" size={16} />
+              )}
+              {isLoading ? "Submitting..." : "Submit"}
+            </button>
           </form>
         </DialogContent>
       </Dialog>
