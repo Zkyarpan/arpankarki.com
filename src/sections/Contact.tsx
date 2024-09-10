@@ -131,7 +131,7 @@ export const ContactSection = () => {
                       }`}
                     />
                     <Mail
-                      className="absolute left-3 top-6 transform -translate-y-1/2 text-gray-400"
+                      className="absolute left-3 top-6 sm:top-5 transform -translate-y-1/2 text-gray-400"
                       size={16}
                     />
                     <ErrorMessage
