@@ -123,7 +123,7 @@ export const ContactSection = () => {
                       id="email"
                       name="email"
                       type="email"
-                      placeholder="arpankarki@xyz.com"
+                      placeholder="johndoe@abc.com"
                       className={`bg-[#1e293b] text-white text-sm sm:text-base md:text-lg placeholder-gray-500 border p-2 pl-10 w-full resize-none focus:outline-none focus:ring-0 rounded-lg ${
                         errors.email && touched.email
                           ? "border-red-500"
@@ -131,7 +131,7 @@ export const ContactSection = () => {
                       }`}
                     />
                     <Mail
-                      className="absolute left-3 top-6 sm:top-4.5 transform -translate-y-1/2 text-gray-400"
+                      className="absolute left-3 top-3.5 text-center text-gray-400"
                       size={16}
                     />
                     <ErrorMessage
@@ -159,7 +159,7 @@ export const ContactSection = () => {
                       }`}
                     />
                     <MessageCircle
-                      className="absolute left-3 lg:top-6 sm:top-4.5 top-5 transform -translate-y-1/2 text-gray-400"
+                      className="absolute left-3 lg:top-6 top-5 transform -translate-y-1/2 text-gray-400"
                       size={16}
                     />
                     <ErrorMessage
