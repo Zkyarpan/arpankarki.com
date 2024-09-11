@@ -2,7 +2,6 @@ import grainImage from "@/assets/images/grain.jpg";
 import { forwardRef, ComponentPropsWithoutRef } from "react";
 import { twMerge } from "tailwind-merge";
 
-// Using forwardRef to handle the ref prop
 const Card = forwardRef<HTMLDivElement, ComponentPropsWithoutRef<"div">>(
   ({ className, children, ...other }, ref) => {
     return (
