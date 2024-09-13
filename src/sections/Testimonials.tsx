@@ -1,6 +1,6 @@
 import monday from "@/assets/images/monday.jpg";
 import arpan1 from "@/assets/images/arpan1.jpg";
-import arpan2 from "@/assets/images/arpan2.jpg";
+import Roxn from "@/assets/images/Roxn.jpg";
 import rahul from "@/assets/images/rahul.jpg";
 import suman from "@/assets/images/suman.jpg";
 import SectionHeader from "@/components/SectionHeader";
@@ -22,10 +22,10 @@ const testimonials = [
     avatar: arpan1,
   },
   {
-    name: "Daniel White",
+    name: "Rosan Kumal",
     position: "CEO @ InnovateCo",
     text: "Arpan's ability to create smooth user experiences is remarkable. We’ve seen a notable increase in conversions since the new design was launched. We’re very satisfied with his work.",
-    avatar: arpan2,
+    avatar: Roxn,
   },
   {
     name: "Rahul Giri",
