@@ -15,7 +15,7 @@ const config: Config = {
       lg: "1200px",
     },
     container: {
-      center: true, 
+      center: true,
       padding: {
         DEFAULT: "1rem",
         md: "2rem",
@@ -30,8 +30,18 @@ const config: Config = {
         "ping-large": "ping-large 1s ease-in-out infinite",
         "move-left": "move-left 1s linear infinite",
         "move-right": "move-right 1s linear infinite",
+        marquee: "marquee var(--duration) linear infinite",
+        "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
       },
       keyframes: {
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(calc(-100% - var(--gap)))" },
+        },
+        "marquee-vertical": {
+          from: { transform: "translateY(0)" },
+          to: { transform: "translateY(calc(-100% - var(--gap)))" },
+        },
         "ping-large": {
           "75%, 100%": {
             transform: "scale(3)",
@@ -55,7 +65,7 @@ const config: Config = {
           },
         },
       },
-      
+
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
