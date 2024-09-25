@@ -92,7 +92,7 @@ export function TestimonialsSection() {
   return (
     <>
       <SectionHeader
-        eyebrow=""
+        eyebrow="People Saying"
         title="What People Are Saying"
         description="Don't just take my word for it. Here's what real people are saying about me"
       />
