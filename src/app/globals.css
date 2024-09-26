@@ -99,12 +99,9 @@ html {
   }
 } */
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
+@layer components {
+  .border-border {
+    @apply border; /* Or any specific border styles */
   }
 }
 
@@ -214,3 +211,10 @@ html {
 .button-82-pushable:focus:not(:focus-visible) {
   outline: none;
 }
+
+@layer utilities {
+  .mask-radial-gradient {
+    mask-image: radial-gradient(circle at center, transparent 20%, black);
+  }
+}
+

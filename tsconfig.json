@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/sections/roughjs.js", "src/components/Shiny.tsc"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/sections/roughjs.js", "src/components/Shiny.tsc", "tailwind.config.js"],
   "exclude": ["node_modules"]
 }

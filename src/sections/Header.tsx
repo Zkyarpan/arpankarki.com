@@ -89,7 +89,7 @@ export const Header: React.FC = () => {
 
   return (
     <motion.div className="flex justify-between items-center fixed top-3 w-full z-10">
-      <nav className="hidden lg:flex gap-3 p-1 border border-white/20 rounded-full bg-black/50 backdrop-blur-md shadow-lg mx-auto">
+      <nav className="hidden lg:flex gap-3 p-1 border border-white/20 rounded-full bg-black/50 backdrop-blur-md shadow-lg mx-auto z-[1000]">
         {["home", "projects", "about", "contact"].map((link) => (
           <motion.a
             key={link}
