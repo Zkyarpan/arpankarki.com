@@ -131,17 +131,17 @@ export function HeroSection() {
   ];
 
   return (
-    <div className="relative w-full min-h-screen mt-5">
+    <div id="home" className="relative w-full min-h-screen mt-10">
       <AnimatedGridPattern
-        numSquares={50}
+        numSquares={60}
         maxOpacity={0.1}
         duration={3}
         repeatDelay={1}
         className={cn(
           "absolute inset-0 w-full h-full",
           "md:[mask-image:radial-gradient(300px_circle_at_center,white,transparent)]",
-          "sm:[mask-image:radial-gradient(300px_circle_at_center,white,transparent)]",
-          "[mask-image:radial-gradient(390px_circle_at_center,white,transparent)]"
+          "sm:[mask-image:radial-gradient(400px_circle_at_center,white,transparent)] -mt-20",
+          "[mask-image:radial-gradient(500px_circle_at_center,white,transparent)]"
         )}
       />
 
