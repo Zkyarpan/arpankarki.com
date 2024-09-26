@@ -74,7 +74,7 @@ export function HeroSection() {
           </div>
         </div>
 
-        <div className="max-w-lg mx-auto">
+        <div className="max-w-lg mx-auto mb-20">
           <h1 className="font-serif text-3xl md:text-5xl text-center mt-8 tracking-wide text-white">
             👋🏼 Hey, I&apos;m Arpan
           </h1>
