@@ -7,8 +7,8 @@ import Image from "next/image";
 import CardHeader from "../components/CardHeader";
 import { motion } from "framer-motion";
 import { useRef } from "react";
-import MapComponent from "./Map";
 import { IconCloudDemo } from "@/components/InteractiveIconCloud";
+import { AnimatedBeamMultipleOutputDemo } from "./Beam";
 
 const hobbies = [
   {
@@ -159,7 +159,9 @@ export const AboutSection = () => {
               </div>
             </Card>
             <Card className="h-[320px] p-0 relative md:col-span-2 lg:col-span-1">
-              <MapComponent />
+              {/* <MapComponent />
+               */}
+              <AnimatedBeamMultipleOutputDemo />
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  mt-12 rounded-full bg-gradient-to-r from-emerald-300 to-sky-400 after:content-[''] after:absolute after:inset-0 after:outline after:outline-2 after:-outline-offset-2 after:rounded-full after:outline-gray-950/30">
                 <div className="absolute  inset-0 rounded-full bg-gradient-to-r from-emerald-300 to-sky-400 -z-20 animate-ping [animation-duration:2s]"></div>
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-300 to-sky-400 -z-20"></div>
