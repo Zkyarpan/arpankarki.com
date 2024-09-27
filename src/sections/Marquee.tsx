@@ -22,10 +22,10 @@ const reviews = [
     img: "https://avatars.githubusercontent.com/u/112973122?v=4",
   },
   {
-    name: "Jane",
-    username: "@jane",
+    name: "Rahul",
+    username: "@rahul",
     body: "No-nonsense approach. I appreciate that he keeps things efficient and to the point.",
-    img: "https://avatars.githubusercontent.com/u/227909?v=4",
+    img: "https://avatars.githubusercontent.com/u/126384589?v=4",
   },
   {
     name: "Benjamin",

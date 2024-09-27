@@ -140,8 +140,8 @@ export function HeroSection() {
         className={cn(
           "absolute inset-0 w-full h-full",
           "md:[mask-image:radial-gradient(300px_circle_at_center,white,transparent)]",
-          "sm:[mask-image:radial-gradient(400px_circle_at_center,white,transparent)] -mt-20",
-          "[mask-image:radial-gradient(500px_circle_at_center,white,transparent)]"
+          "sm:[mask-image:radial-gradient(250px_circle_at_center,white,transparent)] -mt-20",
+          "[mask-image:radial-gradient(600px_circle_at_center,white,transparent)]"
         )}
       />
 
