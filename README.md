@@ -23,8 +23,8 @@ Create a `.env` file similar to [`.env.example`](https://github.com/zkyarpan/arp
 
 Then install dependencies and run the development server:
 ```sh-session
-npm install
-npm run dev
+pnpm install
+pnpm run dev
 ```
 
 
