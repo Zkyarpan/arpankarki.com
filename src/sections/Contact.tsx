@@ -134,33 +134,39 @@ export const ContactSection = () => {
                 discuss how I can help you achieve your goals.
               </p>
 
-              {/* Feature points with icons */}
-              <div className="mt-6 hidden md:flex flex-col gap-3 text-sm">
-                <div className="flex items-center gap-2">
+              {/* Feature points with icons - visible on all devices */}
+              <div className="mt-4 md:mt-6 flex flex-col gap-2 md:gap-3 text-sm">
+                <div className="flex items-center gap-2 justify-center md:justify-start">
                   <div className="bg-white/20 p-1.5 rounded-full">
-                    <CheckCircle2 className="h-4 w-4 text-gray-900" />
+                    <CheckCircle2 className="h-3 w-3 md:h-4 md:w-4 text-gray-900" />
                   </div>
-                  <span>Professional web development</span>
+                  <span className="text-xs md:text-sm">
+                    Professional web development
+                  </span>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 justify-center md:justify-start">
                   <div className="bg-white/20 p-1.5 rounded-full">
-                    <CheckCircle2 className="h-4 w-4 text-gray-900" />
+                    <CheckCircle2 className="h-3 w-3 md:h-4 md:w-4 text-gray-900" />
                   </div>
-                  <span>Responsive modern designs</span>
+                  <span className="text-xs md:text-sm">
+                    Responsive modern designs
+                  </span>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 justify-center md:justify-start">
                   <div className="bg-white/20 p-1.5 rounded-full">
-                    <CheckCircle2 className="h-4 w-4 text-gray-900" />
+                    <CheckCircle2 className="h-3 w-3 md:h-4 md:w-4 text-gray-900" />
                   </div>
-                  <span>Quick response, fast delivery</span>
+                  <span className="text-xs md:text-sm">
+                    Quick response, fast delivery
+                  </span>
                 </div>
               </div>
             </div>
 
-            <div className="w-full md:w-auto">
+            <div className="w-full md:w-auto mt-6 md:mt-0">
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="group w-full md:w-auto py-3.5 px-6 md:px-8 flex items-center justify-center gap-2 bg-gray-900 text-white rounded-xl hover:bg-gray-800 transition-all shadow-lg shadow-gray-900/20 hover:shadow-gray-900/30 hover:translate-y-[-1px]"
+                className="group w-full md:w-auto py-3 px-5 md:py-3.5 md:px-6 flex items-center justify-center gap-2 bg-gray-900 text-white rounded-xl hover:bg-gray-800 transition-all shadow-md"
               >
                 <span className="font-medium">Contact Me</span>
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -171,23 +177,23 @@ export const ContactSection = () => {
       </div>
 
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent className="max-w-md p-0 rounded-xl overflow-hidden bg-gray-950 border border-gray-800/50 shadow-xl">
-          {/* Header with gradient */}
-          <div className="bg-gradient-to-r from-emerald-400 to-sky-500 h-16 relative flex items-end">
+        <DialogContent className="max-w-[90%] sm:max-w-md p-0 rounded-xl overflow-hidden bg-gray-950 border border-gray-800/50 shadow-xl mx-auto">
+          {/* Header with simplified gradient */}
+          <div className="bg-emerald-400 h-14 relative flex items-end">
             {/* Overlapping icon card */}
-            <div className="absolute -bottom-8 left-6 bg-gray-900 p-4 rounded-xl border-4 border-gray-950 shadow-lg">
-              <div className="bg-gradient-to-br from-emerald-400 to-sky-500 h-12 w-12 rounded-lg flex items-center justify-center">
-                <MessageSquare className="h-6 w-6 text-white" />
+            <div className="absolute -bottom-8 left-4 sm:left-6 bg-gray-900 p-3 sm:p-4 rounded-xl border-4 border-gray-950 shadow-lg">
+              <div className="bg-emerald-500 h-10 w-10 sm:h-12 sm:w-12 rounded-lg flex items-center justify-center">
+                <MessageSquare className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
               </div>
             </div>
           </div>
 
-          <div className="p-6 pt-14">
+          <div className="p-4 sm:p-6 pt-12 sm:pt-14">
             <DialogHeader>
-              <DialogTitle className="text-2xl font-bold text-white flex items-center gap-2">
+              <DialogTitle className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
                 Get In Touch
               </DialogTitle>
-              <DialogDescription className="text-gray-400 mt-1.5">
+              <DialogDescription className="text-gray-400 mt-1.5 text-sm">
                 Fill out this form and I&apos;ll get back to you as soon as
                 possible.
               </DialogDescription>
@@ -199,7 +205,7 @@ export const ContactSection = () => {
               onSubmit={handleSubmit}
             >
               {({ errors, touched }) => (
-                <Form className="mt-6 space-y-5">
+                <Form className="mt-5 sm:mt-6 space-y-4 sm:space-y-5">
                   <div>
                     <Label
                       htmlFor="email"
@@ -214,7 +220,7 @@ export const ContactSection = () => {
                         name="email"
                         type="email"
                         placeholder="johndoe@example.com"
-                        className={`w-full bg-gray-800/50 text-white text-sm py-3 px-4 rounded-lg placeholder-gray-500 border ${
+                        className={`w-full bg-gray-800/50 text-white text-sm py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg placeholder-gray-500 border ${
                           errors.email && touched.email
                             ? "border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500"
                             : "border-gray-700 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
@@ -233,7 +239,7 @@ export const ContactSection = () => {
                       htmlFor="message"
                       className="text-white font-medium text-sm flex items-center gap-1.5"
                     >
-                      <MessageSquare className="h-3.5 w-3.5 text-sky-400" />
+                      <MessageSquare className="h-3.5 w-3.5 text-emerald-400" />
                       Message
                     </Label>
                     <div className="mt-1.5 relative">
@@ -243,10 +249,10 @@ export const ContactSection = () => {
                         name="message"
                         placeholder="Tell me about your project..."
                         rows={4}
-                        className={`w-full bg-gray-800/50 text-white text-sm py-3 px-4 rounded-lg placeholder-gray-500 border ${
+                        className={`w-full bg-gray-800/50 text-white text-sm py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg placeholder-gray-500 border ${
                           errors.message && touched.message
                             ? "border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500"
-                            : "border-gray-700 focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
+                            : "border-gray-700 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
                         } outline-none transition-all resize-none`}
                       />
                       <ErrorMessage
@@ -259,12 +265,12 @@ export const ContactSection = () => {
 
                   <button
                     type="submit"
-                    className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-400 to-sky-500 hover:from-emerald-500 hover:to-sky-600 text-white py-3 rounded-lg font-medium mt-6 shadow-lg shadow-emerald-500/20 disabled:opacity-70 transition-all"
+                    className="w-full flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white py-2.5 sm:py-3 rounded-lg font-medium mt-5 sm:mt-6 shadow-md disabled:opacity-70 transition-all"
                     disabled={isLoading}
                   >
                     {isLoading ? (
                       <>
-                        <Loader2 className="h-5 w-5 animate-spin" />
+                        <Loader2 className="h-4 w-4 sm:h-5 sm:w-5 animate-spin" />
                         <span>Sending...</span>
                       </>
                     ) : (
