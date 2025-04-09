@@ -88,7 +88,7 @@ export const Header: React.FC = () => {
   useEffect(() => {}, [activeLink]);
 
   return (
-    <motion.div className="flex justify-between items-center fixed top-3 w-full z-10">
+    <motion.div className="flex justify-between items-center fixed top-3 w-full z-[9999]">
       <nav className="hidden lg:flex gap-3 p-1 border border-white/20 rounded-full bg-black/50 backdrop-blur-md shadow-lg mx-auto z-[1000]">
         {["home", "projects", "about", "contact"].map((link) => (
           <motion.a
@@ -125,7 +125,7 @@ export const Header: React.FC = () => {
       </nav>
 
       {isMobileOrTablet && (
-        <div>
+        <div className="z-[1500]">
           <button
             className="lg:hidden p-2 cursor-pointer ml-2"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -144,7 +144,7 @@ export const Header: React.FC = () => {
           </button>
 
           <motion.div
-            className={`fixed top-5 left-2 lg:hidden sm:left-4 w-[50%] sm:w-[40%] md:w-[30%] bg-black/50 border border-white/20 z-10 p-1 rounded-3xl backdrop-blur-md shadow-lg mt-10 text-center ${
+            className={`fixed top-5 left-2 lg:hidden sm:left-4 w-[50%] sm:w-[40%] md:w-[30%] bg-black/50 border border-white/20 z-[1500] p-1 rounded-3xl backdrop-blur-md shadow-lg mt-10 text-center ${
               menuOpen ? "block" : "hidden"
             }`}
             initial={{ x: "-100%" }}

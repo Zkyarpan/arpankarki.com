@@ -49,9 +49,18 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    // Fix: Remove any spaces in the app password
+    // Clean and prepare email credentials
     const emailPass = process.env.EMAIL_APP_PASSWORD?.replace(/\s+/g, "") || "";
     const emailUser = process.env.EMAIL_USER || "";
+
+    if (!emailUser || !emailPass) {
+      console.error("Email credentials not properly configured");
+      return NextResponse.json({
+        message:
+          "Your message was saved successfully, but we couldn't send email notifications.",
+        success: true,
+      });
+    }
 
     // Try using Resend if configured
     if (process.env.RESEND_API_KEY) {
@@ -78,7 +87,12 @@ export async function POST(request: NextRequest) {
           tls: {
             rejectUnauthorized: false,
           },
+          debug: true, // Enable debug output
         });
+
+        // Verify connection configuration
+        await transporter.verify();
+        console.log("SMTP connection verified successfully");
 
         // Send confirmation email to the user
         await transporter.sendMail({
@@ -114,8 +128,15 @@ export async function POST(request: NextRequest) {
         });
 
         emailSent = true;
-      } catch (emailError) {
+      } catch (emailError: any) {
         console.error("Email sending error:", emailError);
+
+        // Provide better error info
+        if (emailError.code === "EAUTH") {
+          console.error(
+            "Gmail authentication failed. Please check your app password."
+          );
+        }
       }
     }
 
