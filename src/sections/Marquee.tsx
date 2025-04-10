@@ -85,7 +85,15 @@ const ReviewCard = ({ img, name, username, body }: ReviewCardProps) => {
 };
 
 // Marquee component with smooth animation
-const Marquee = ({ children, reverse = false, speed = 30 }: { children: React.ReactNode; reverse?: boolean; speed?: number }) => {
+const Marquee = ({
+  children,
+  reverse = false,
+  speed = 30,
+}: {
+  children: React.ReactNode;
+  reverse?: boolean;
+  speed?: number;
+}) => {
   return (
     <div className="relative flex overflow-x-hidden py-4">
       <div
