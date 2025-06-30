@@ -1,18 +1,19 @@
+"use server";
+
 import { connectDB } from "@/config/dbConfig";
 import ContactUs from "@/models/contactForm";
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-// Connect to the database
-connectDB();
-
 export async function POST(request: NextRequest) {
   try {
-    // Parse the request body
+    // ✅ Ensure database connection is awaited
+    await connectDB();
+
+    // Parse request body
     const reqBody = await request.json();
     const { email, message } = reqBody;
 
-    // Validate inputs
     if (!email || !message) {
       return NextResponse.json(
         { message: "Email and message are required." },
@@ -20,7 +21,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 1. Save to database first (this should work regardless of email sending)
+    // Save message to DB
     try {
       const newMessage = new ContactUs({ email, message });
       await newMessage.save();
@@ -33,118 +34,81 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 2. Now try to send emails - even if this fails, we've saved the message
-    let emailSent = false;
-
-    // Check if we should skip email in development mode
-    if (
-      process.env.SKIP_EMAIL_IN_DEV === "true" &&
-      process.env.NODE_ENV === "development"
-    ) {
-      console.log("Skipping email sending in development mode");
-      return NextResponse.json({
-        message:
-          "Your message was saved successfully! (Email sending skipped in development)",
-        success: true,
-      });
-    }
-
-    // Clean and prepare email credentials
-    const emailPass = process.env.EMAIL_APP_PASSWORD?.replace(/\s+/g, "") || "";
     const emailUser = process.env.EMAIL_USER || "";
+    const emailPass = process.env.EMAIL_APP_PASSWORD?.replace(/\s+/g, "") || "";
 
     if (!emailUser || !emailPass) {
       console.error("Email credentials not properly configured");
       return NextResponse.json({
         message:
-          "Your message was saved successfully, but we couldn't send email notifications.",
+          "Your message was saved successfully, but email could not be sent.",
         success: true,
       });
     }
 
-    // Try using Resend if configured
-    if (process.env.RESEND_API_KEY) {
-      try {
-        // If you have Resend configured, use it here
-        console.log("Using Resend for email delivery");
-        // Resend implementation would go here
-        emailSent = true;
-      } catch (error) {
-        console.error("Resend email error:", error);
+    let emailSent = false;
+
+    // Optional: implement Resend if desired here...
+
+    // Fallback to nodemailer
+    try {
+      const transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: emailUser,
+          pass: emailPass,
+        },
+        tls: {
+          rejectUnauthorized: false,
+        },
+        debug: true,
+      });
+
+      await transporter.verify();
+      console.log("SMTP verified.");
+
+      // Email to user
+      await transporter.sendMail({
+        from: `"Arpan Karki" <${emailUser}>`,
+        to: email,
+        subject: "Thank you for contacting me",
+        html: `
+          <div style="font-family: Arial, sans-serif; color: #333;">
+            <h2>Thank You for Reaching Out!</h2>
+            <p>I've received your message and will get back to you as soon as possible.</p>
+            <p>Best regards,<br>Arpan Karki</p>
+          </div>
+        `,
+      });
+
+      // Email to self
+      await transporter.sendMail({
+        from: `"Contact Form" <${emailUser}>`,
+        to: emailUser,
+        subject: "New Contact Form Submission",
+        html: `
+          <div style="font-family: Arial, sans-serif; color: #333;">
+            <h2>New Contact Form Submission</h2>
+            <p><strong>From:</strong> ${email}</p>
+            <p><strong>Message:</strong></p>
+            <p style="background-color: #f5f5f5; padding: 10px; border-radius: 5px;">${message}</p>
+            <p><small>Submitted on: ${new Date().toLocaleString()}</small></p>
+          </div>
+        `,
+      });
+
+      emailSent = true;
+    } catch (emailError: any) {
+      console.error("Email sending error:", emailError);
+      if (emailError.code === "EAUTH") {
+        console.error("Invalid Gmail credentials. Check app password.");
       }
     }
 
-    // If Resend failed or wasn't configured, try nodemailer with Gmail
-    if (!emailSent) {
-      try {
-        // Create transporter with Gmail
-        const transporter = nodemailer.createTransport({
-          service: "gmail",
-          auth: {
-            user: emailUser,
-            pass: emailPass,
-          },
-          tls: {
-            rejectUnauthorized: false,
-          },
-          debug: true, // Enable debug output
-        });
-
-        // Verify connection configuration
-        await transporter.verify();
-        console.log("SMTP connection verified successfully");
-
-        // Send confirmation email to the user
-        await transporter.sendMail({
-          from: `"Arpan Karki" <${emailUser}>`,
-          to: email,
-          subject: "Thank you for contacting me",
-          text: `Thank you for your message. I'll get back to you soon!\n\nYour message: "${message}"`,
-          html: `
-            <div style="font-family: Arial, sans-serif; color: #333;">
-              <h2>Thank You for Reaching Out!</h2>
-              <p>I've received your message and will get back to you as soon as possible.</p>
-              <p style="color: #666; font-style: italic;">Your message: "${message}"</p>
-              <p>Best regards,<br>Arpan Karki</p>
-            </div>
-          `,
-        });
-
-        // Send notification to yourself
-        await transporter.sendMail({
-          from: `"Contact Form" <${emailUser}>`,
-          to: emailUser,
-          subject: "New Contact Form Submission",
-          text: `New message from: ${email}\n\nMessage: ${message}`,
-          html: `
-            <div style="font-family: Arial, sans-serif; color: #333;">
-              <h2>New Contact Form Submission</h2>
-              <p><strong>From:</strong> ${email}</p>
-              <p><strong>Message:</strong></p>
-              <p style="background-color: #f5f5f5; padding: 10px; border-radius: 5px;">${message}</p>
-              <p><small>Submitted on: ${new Date().toLocaleString()}</small></p>
-            </div>
-          `,
-        });
-
-        emailSent = true;
-      } catch (emailError: any) {
-        console.error("Email sending error:", emailError);
-
-        // Provide better error info
-        if (emailError.code === "EAUTH") {
-          console.error(
-            "Gmail authentication failed. Please check your app password."
-          );
-        }
-      }
-    }
-
-    // Return success even if email sending failed
     return NextResponse.json({
       message: emailSent
         ? "Your message has been sent successfully!"
-        : "Your message was saved, but there was an issue sending confirmation emails.",
+        : "Message saved, but email sending failed.",
       success: true,
     });
   } catch (error: any) {
