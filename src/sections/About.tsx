@@ -27,7 +27,19 @@ const hobbies = [
 ];
 
 // Card component with hover effects and animations
-const Card = ({ children, className = "", icon, title, delay = 0 }: { children: React.ReactNode; className?: string; icon?: React.ReactNode; title?: string; delay?: number }) => {
+const Card = ({
+  children,
+  className = "",
+  icon,
+  title,
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  icon?: React.ReactNode;
+  title?: string;
+  delay?: number;
+}) => {
   const cardRef = useRef(null);
   const isInView = useInView(cardRef, { once: true, amount: 0.2 });
   const controls = useAnimation();
@@ -215,32 +227,72 @@ export const AboutSection = () => {
 
             {/* Location Beam Card */}
             <Card
-              title="My Location"
-              icon={<Shapes className="w-5 h-5 text-rose-400" />}
+              title="Current Focus"
+              icon={<Shapes className="w-5 h-5 text-orange-400" />}
               delay={0.4}
               className="md:col-span-1"
             >
               <p className="text-gray-400 mb-4">
-                Currently based in the beautiful country of Nepal.
+                What I'm currently learning and exploring in tech.
               </p>
               <div className="bg-gray-950/50 rounded-lg border border-gray-800 p-4 h-60 relative overflow-hidden">
-                <AnimatedBeamMultipleOutputDemo />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 mt-16">
-                  <div className="relative flex items-center justify-center">
+                {/* Progress Rings */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                  <div className="relative w-32 h-32">
+                    {/* Outer Ring - AI/ML */}
                     <motion.div
-                      className="w-12 h-12 rounded-full bg-gradient-to-r from-emerald-500 to-sky-500"
-                      animate={{
-                        scale: [1, 1.1, 1],
-                        opacity: [0.7, 1, 0.7],
-                      }}
+                      className="absolute inset-0 rounded-full border-4 border-gray-700"
+                      initial={{ pathLength: 0 }}
+                      animate={{ pathLength: 0.75 }}
+                      transition={{ duration: 2, ease: "easeInOut" }}
+                    >
+                      <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-purple-500 rounded-full"></div>
+                    </motion.div>
+
+                    {/* Middle Ring - Web3 */}
+                    <motion.div
+                      className="absolute inset-4 rounded-full border-4 border-gray-600"
+                      initial={{ pathLength: 0 }}
+                      animate={{ pathLength: 0.6 }}
                       transition={{
                         duration: 2,
-                        repeat: Infinity,
-                        repeatType: "loop",
+                        delay: 0.5,
+                        ease: "easeInOut",
                       }}
-                    />
-                    <div className="absolute w-16 h-16 rounded-full border-2 border-emerald-500/50 animate-ping" />
-                    <div className="absolute w-24 h-24 rounded-full border border-sky-500/30 animate-ping [animation-duration:3s]" />
+                    >
+                      <div className="absolute -top-2 right-0 w-4 h-4 bg-blue-500 rounded-full"></div>
+                    </motion.div>
+
+                    {/* Inner Ring - Mobile Dev */}
+                    <motion.div
+                      className="absolute inset-8 rounded-full border-4 border-gray-500"
+                      initial={{ pathLength: 0 }}
+                      animate={{ pathLength: 0.85 }}
+                      transition={{ duration: 2, delay: 1, ease: "easeInOut" }}
+                    >
+                      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-green-500 rounded-full"></div>
+                    </motion.div>
+
+                    {/* Center Icon */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-gradient-to-r from-orange-400 to-red-500 rounded-full flex items-center justify-center">
+                      <span className="text-white text-sm">🎯</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Labels */}
+                <div className="absolute bottom-2 left-2 text-xs text-gray-400">
+                  <div className="flex items-center gap-1 mb-1">
+                    <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                    <span>AI/ML</span>
+                  </div>
+                  <div className="flex items-center gap-1 mb-1">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                    <span>Web3</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span>Mobile</span>
                   </div>
                 </div>
               </div>
