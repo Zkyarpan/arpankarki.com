@@ -8,36 +8,36 @@ import { FlipWords } from "@/components/ui/flip-words";
 
 export function HeroSection() {
   const flipWords = [
-    "innovative",
+    "creative",
     "scalable",
-    "secure",
-    "performant",
-    "robust",
-    "efficient",
-    "modern",
-    "responsive",
-    "clean",
-    "maintainable",
-    "modular",
-    "flexible",
     "reliable",
-    "future-proof",
-    "elegant",
-    "optimized",
-    "fast",
-    "accessible",
-    "intuitive",
+    "portable",
+    "securely",
+    "flexible",
     "powerful",
+    "accurate",
+    "adaptive",
+    "reactive",
     "dynamic",
-    "scalable",
-    "customizable",
-    "seamless",
-    "interactive",
-    "developer-friendly",
-    "user-centric",
-    "bug-free",
-    "extensible",
-    "lightweight",
+    "refined",
+    "logical",
+    "optimal",
+    "minimal",
+    "compact",
+    "elegant",
+    "intense",
+    "agilely",
+    "modular",
+    "extreme",
+    "robustly",
+    "precise",
+    "crafted",
+    "focused",
+    "cleaner",
+    "lighter",
+    "smarter",
+    "faster",
+    "updated",
   ];
 
   return (
@@ -51,14 +51,14 @@ export function HeroSection() {
           "absolute inset-0 w-full h-full",
           "md:[mask-image:radial-gradient(300px_circle_at_center,white,transparent)]",
           "sm:[mask-image:radial-gradient(250px_circle_at_center,white,transparent)] -mt-20",
-          "[mask-image:radial-gradient(600px_circle_at_center,white,transparent)]"
+          "[mask-image:radial-gradient(600px_circle_at_center,white,transparent)]",
         )}
       />
 
       <div className="container relative z-10 flex flex-col items-center justify-center min-h-screen">
         <Image
           src={mainImage}
-          className="rounded-full border-4 border-gray-800 shadow-lg w-[160px] h-[160px] object-cover"
+          className="rounded-full border-4 border-gray-800 shadow-lg w-[150px] h-[150px] object-cover"
           alt="ArpanHeroSection"
           priority
           placeholder="blur"
