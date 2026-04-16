@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import AnimatedGridPattern from "@/components/magicui/animated-grid-pattern";
-import mainImage from "@/assets/images/arpan.png";
+import mainImage from "@/assets/images/main2.jpg";
 import { FlipWords } from "@/components/ui/flip-words";
 
 export function HeroSection() {
