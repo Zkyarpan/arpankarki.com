@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import AnimatedGridPattern from "@/components/magicui/animated-grid-pattern";
-import mainImage from "@/assets/images/main.jpg";
+import mainImage from "@/assets/images/arpan.png";
 import { FlipWords } from "@/components/ui/flip-words";
 
 export function HeroSection() {
@@ -58,7 +58,7 @@ export function HeroSection() {
       <div className="container relative z-10 flex flex-col items-center justify-center min-h-screen">
         <Image
           src={mainImage}
-          className="rounded-full border-4 border-gray-800 shadow-lg w-[150px] h-[150px] object-cover"
+          className="rounded-full w-[250px] h-[250px] object-cover"
           alt="ArpanHeroSection"
           priority
           placeholder="blur"

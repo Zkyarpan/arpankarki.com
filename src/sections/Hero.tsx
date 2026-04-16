@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import { motion, useAnimation, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import mainImage from "@/assets/images/main.jpg";
+import mainImage from "@/assets/images/arpan.png";
 import grainImage from "@/assets/images/grain.jpg";
 import StarIcon from "@/assets/icons/star.svg";
 import SparkleIcon from "@/assets/icons/sparkle.svg";
