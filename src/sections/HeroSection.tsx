@@ -58,7 +58,7 @@ export function HeroSection() {
       <div className="container relative z-10 flex flex-col items-center justify-center min-h-screen">
         <Image
           src={mainImage}
-          className="rounded-full w-[250px] h-[250px] object-cover"
+          className="rounded-full w-[150px] h-[150px] object-cover"
           alt="ArpanHeroSection"
           priority
           placeholder="blur"
